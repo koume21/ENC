@@ -3,7 +3,7 @@
   <head>
     <title>ENC</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -13,8 +13,8 @@
      <input type="text" required>
      <p>パスワード</p>
      <input type="passward" name="passward">
-     <p><button type="button" name="login" value="ログイン">ログイン</button></p>
-     <p><button type="button" name="start" value="スタート">新規登録</button></p>
+     <button type="button" name="login" value="ログイン">ログイン</button>
+     <button type="button" name="start" value="スタート">新規登録</button>
    </form>
 
   </body>
