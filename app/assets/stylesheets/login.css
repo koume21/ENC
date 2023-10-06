@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
 body{
-    background-color: blueviolet;
+    background-color: pink;
 }
 p {
     color: red;
@@ -17,6 +17,8 @@ h1 {
     border-radius: 1rem;
     box-shadow: 0 0 10px #4e4e4e;
     padding:20px;
+    margin: auto;
     box-sizing:border-box;
     text-align:center;
+    
 }
