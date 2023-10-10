@@ -7,18 +7,18 @@
   </head>
 
   <body>
-     <h1>登録</h1>
+     <h1>ログイン</h1>
        <%= form_with model: @users do |form| %>
          <div>
             <%= form.label "ユーザーＩＤ" %>
             <%= form.text_field :user_id %>
          </div>
          <div>
-            <%= form.label :"パスワード" %>
-            <%= form.text_field :password %>
+            <%= form.label "パスワード" %>
+            <%= form.password_field :password %>
          </div>
          <div>
-            <%= form.submit %>
+            <%= form.submit "ログイン" %>
          </div>
        <% end %>
   </body>

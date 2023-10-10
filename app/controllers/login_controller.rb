@@ -1,14 +1,17 @@
 class LoginController < ApplicationController
-  def new
-    @users = User.new
-  end
-  def index
-    @users = User.all
+  def login
+    
   end
 
   def create
-    @users = User.new(user_params)
-    @users.save
+    user = User.find_by(user_id: params[:user_id].downcase)
+    if user && user.authenticate(params[:password])
+      log_in(user)
+      redirect_to profile_path(user)
+    else
+      flash.now[:danger] = 'メールアドレスかパスワードが間違っています。'
+      render 'new'
+    end
   end
 
   private
