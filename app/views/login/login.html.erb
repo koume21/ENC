@@ -8,17 +8,17 @@
 
   <body>
      <h1>ログイン</h1>
-       <%= form_with model: @users do |form| %>
+       <%= form_tag action: :create do %>
          <div>
-            <%= form.label "ユーザーＩＤ" %>
-            <%= form.text_field :user_id %>
+            <%= label_tag "ユーザーＩＤ" %>
+            <%= text_field_tag :user_id %>
          </div>
          <div>
-            <%= form.label "パスワード" %>
-            <%= form.text_field :password %>
+            <%= label_tag "パスワード" %>
+            <%= text_field_tag :password %>
          </div>
          <div>
-            <%= form.submit "ログイン" %>
+            <%= submit_tag "ログイン" %>
          </div>
        <% end %>
   </body>
