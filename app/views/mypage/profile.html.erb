@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    a
+    <br>
+    <% @user.each do |usr| %>
+      <%= usr.login %>
+    <% end %>
+    <br>
+    <% @user_profile.each do |profile| %>
+      <%= profile.user_name %>
+      <br>
+      <%= profile.comments %>
+    <% end %>
     
   </body>
 </html>
