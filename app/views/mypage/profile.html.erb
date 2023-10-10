@@ -6,21 +6,57 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'mypage', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    a
-    <br>
-    <% @user.each do |usr| %>
-      <%= usr.login %>
-    <% end %>
-    <br>
-    <% @user_profile.each do |profile| %>
-      <%= profile.user_name %>
+    <div class="my_profile">
+      <%= @user.login %>
       <br>
-      <%= profile.comments %>
-    <% end %>
+      <%= @user.profile.user_name %>
+      <br>
+      <%= @user.profile.comments %>
+      <p>プロフィール編集</p>
+      <div class=modal>
+        <%= form_with model: @profile do |form| %>
+         <div>
+            <%= form.label "ユーザーネーム" %>
+            <%= form.text_field :user_name %>
+         </div>
+         <div>
+            <%= form.label "学校名" %>
+            <%= form.text_field :school %>
+         </div>
+         <div>
+            <%= form.label "プロフィール画像" %>
+            <%= form.text_field :profile_image %>
+         </div>
+         <div>
+            <%= form.label "学年" %>
+            <%= form.text_field :grade %>
+         </div>
+         <div>
+            <%= form.label "部活動" %>
+            <%= form.text_field :club %>
+         </div>
+         <div>
+            <%= form.label "性別" %>
+            <%= form.text_field :type %>
+         </div>
+         <div>
+            <%= form.label "一言" %>
+            <%= form.text_field :comments %>
+         </div>
+         <div>
+            <%= form.submit "更新" %>
+         </div>
+       <% end %>
+      </div>
+    </div>
+
+    
+    
+
     
   </body>
 </html>
