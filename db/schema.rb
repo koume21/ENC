@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2023_10_06_051423) do
     t.integer "school_id"
     t.string "profile_image"
     t.integer "grade"
-    t.string "club_id"
+    t.integer "club_id"
     t.integer "type_id"
     t.text "comments"
     t.datetime "created_at", precision: 6, null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2023_10_06_051423) do
 
   create_table "users", force: :cascade do |t|
     t.string "login"
-    t.string "passward"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
