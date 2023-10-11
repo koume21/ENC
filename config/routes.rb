@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'new_account/new'
   resources :chats
   resources :room_members
   resources :rooms
