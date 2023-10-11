@@ -2,8 +2,8 @@
 
 one:
   login: MyString
-  passward: MyString
+  password: MyString
 
 two:
   login: MyString
-  passward: MyString
+  password: MyString
