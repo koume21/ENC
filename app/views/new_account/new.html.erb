@@ -1,22 +1,14 @@
 <h1>ユーザー登録</h1>
-<%= form_with model: @user, url: signup_path, local: true do |form| %>
-  <% if @user.errors.any? %>
-    <strong><%= @user.errors.count %>個のエラーがあります。</strong>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<%= form_tag action: :new do %>
 
-  <%= form.label :user_id, 'ユーザーＩＤ' %>
-  <%= form.user_id_field :user_id %>
+  <%= label_tag 'ユーザーネーム' %>
+  <%= text_field_tag :user_name %>
 
-  <%= form.label :password, 'パスワード' %>
-  <%= form.password_field :password %>
+  <%= label_tag "ユーザーＩＤ" %>
+  <%= text_field_tag :user_id %>>
 
-  <%= form.label :password_confirmation, 'パスワード(確認)' %>
-  <%= form.password_field :password_confirmation %>
+  <%= label_tag 'パスワード' %>
+  <%= text_field_tag :password %>
 
-  <%= form.submit '登録' %>
+  <%= submit_tag '登録' %>
 <% end %>
