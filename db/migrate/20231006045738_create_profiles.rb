@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[6.1]
       t.integer :school_id
       t.string :profile_image
       t.integer :grade
-      t.string :club_id
+      t.integer :club_id
       t.integer :type_id
       t.text :comments
 
