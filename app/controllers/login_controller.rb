@@ -4,13 +4,12 @@ class LoginController < ApplicationController
   end
 
   def create
-    user = User.find_by(user_id: params[:user_id].downcase)
-    if user && user.authenticate(params[:password])
-      log_in(user)
-      redirect_to profile_path(user)
+    user = User.find_by(login: params[:user_id])
+    if user && user.passward == params[:password]  then
+      redirect_to '/mypage/profile'
     else
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています。'
-      render 'new'
+      render 'login/login'
     end
   end
 
