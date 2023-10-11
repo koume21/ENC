@@ -1,12 +1,16 @@
 class MypageController < ApplicationController
   def profile
     @user = User.find(1)
-    @user.update(profile_params)
+    @profile = @user.profile
   end
 
   def update
-    @profile = Profile.find_by(user_id: 1)
-
+    profile = Profile.find_by(user_id: 1)
+    if profile.update(profile_params)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to '/mypage/profile'
+    end
   end
   private
   def profile_params
