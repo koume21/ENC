@@ -1,13 +1,13 @@
 <h1>ユーザー登録</h1>
-<%= form_tag action: :new do %>
+<%= form_tag(action: :create,method: :post) do %>
 
   <%= label_tag 'ユーザーネーム' %>
   <%= text_field_tag :user_name %>
 
   <%= label_tag "ユーザーＩＤ" %>
-  <%= text_field_tag :user_id %>>
+  <%= text_field_tag :user_id %>
 
-  <%= label_tag 'パスワード' %>
+  <%= label_tag "パスワード" %>
   <%= text_field_tag :password %>
 
   <%= submit_tag '登録' %>
