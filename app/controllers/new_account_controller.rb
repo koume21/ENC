@@ -8,6 +8,7 @@ class NewAccountController < ApplicationController
       redirect_to 'mypage/profile'
     else
       render :new
+    end
   end
 
 end
