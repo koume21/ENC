@@ -5,12 +5,13 @@ class MypageController < ApplicationController
   end
 
   def update
-    profile = Profile.find_by(user_id: 1)
-    if profile.update(profile_params)
-      redirect_to '/'
-    else
-      redirect_to '/mypage/profile'
-    end
+    p "aaa"
+    # profile = Profile.find_by(user_id: 1)
+    # if profile.update(profile_params)
+    #   redirect_to '/'
+    # else
+    #   redirect_to '/mypage/profile'
+    # end
   end
   private
   def profile_params

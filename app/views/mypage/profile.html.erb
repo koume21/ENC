@@ -18,7 +18,7 @@
       <%= @user.profile.comments %>
       <p>プロフィール編集</p>
       <div class=modal>
-        <%= form_with model: @profile do |form| %>
+        <%= form_with url: "/mypage/update",model: @profile do |form| %>
          <div>
             <%= form.label "ユーザーネーム" %>
             <%= form.text_field :user_name %>
