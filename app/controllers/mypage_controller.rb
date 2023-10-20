@@ -7,7 +7,7 @@ class MypageController < ApplicationController
   def update
     profile = Profile.find_by(user_id: 1)
     if profile.update(profile_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to '/'
     else
       redirect_to '/mypage/profile'
     end
