@@ -7,6 +7,7 @@ class NewAccountController < ApplicationController
     if @user.save
       @profile = Profile.new(user_id: @user.id)
       if @profile.save
+        session[:login_id] = @user.id
         redirect_to '/mypage/profile'
       end
     else
