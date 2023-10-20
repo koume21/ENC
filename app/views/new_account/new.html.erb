@@ -1,14 +1,30 @@
-<h1>ユーザー登録</h1>
-<%= form_tag action: :new do %>
+<!DOCTYPE html> 
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= stylesheet_link_tag 'new_account', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-  <%= label_tag 'ユーザーネーム' %>
-  <%= text_field_tag :user_name %>
+  <body>
+    <h1>新規登録</h1>
+    <%= form_tag action: :new do %>
+      <div>
+        <%= label_tag 'ユーザーネーム' %>
+        <br>
+        <%= text_field_tag :user_name %>
+      </div>
+      <div> 
+        <%= label_tag "ユーザーＩＤ" %>
+        <br>
+        <%= text_field_tag :user_id %>
+      </div>
+      <div>
+        <%= label_tag 'パスワード' %>
+        <br>
+        <%= text_field_tag :password %>
+      </div>
+      <%= submit_tag '新規登録' %>
+    <% end %>
+  </body>
 
-  <%= label_tag "ユーザーＩＤ" %>
-  <%= text_field_tag :user_id %>
-
-  <%= label_tag 'パスワード' %>
-  <%= text_field_tag :password %>
-
-  <%= submit_tag '登録' %>
-<% end %>
+</html>
