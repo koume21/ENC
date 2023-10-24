@@ -1,10 +1,12 @@
-<h1>ユーザー登録</h1>
-<%= form_tag(action: :create,method: :post) do %>
-
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
   <body>
+    <h1>ユーザー登録</h1>
     <h1>出雲市高校生マッチングアプリ</h1>
     <h2>新規登録</h2>
-    <%= form_tag action: :new do %>
+    <%= form_tag(action: :create,method: :post) do %>
       <div>
         <%= label_tag 'ユーザーネーム' %>
         <br>
@@ -21,8 +23,10 @@
         <%= text_field_tag :password %>
       </div>
       <%= submit_tag '新規登録' %>
-      <%= submit_tag 'あいうえお' %>
+
     <% end %>
   </body>
-
 </html>
+  
+
+

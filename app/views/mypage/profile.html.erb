@@ -20,38 +20,38 @@
       <p>プロフィール編集</p>
       <div class=modal>
         <%= form_with url: "/mypage/update",model: @profile do |form| %>
-         <div>
-            <%= form.label "ユーザーネーム" %>
-            <%= form.text_field :user_name %>
-         </div>
-         <div>
-            <%= form.label "学校名" %>
-            <%= form.text_field :school_id %>
-         </div>
-         <div>
-            <%= form.label "プロフィール画像" %>
-            <%= form.text_field :profile_image %>
-         </div>
-         <div>
-            <%= form.label "学年" %>
-            <%= form.text_field :grade %>
-         </div>
-         <div>
-            <%= form.label "部活動" %>
-            <%= form.text_field :club_id %>
-         </div>
-         <div>
-            <%= form.label "性別" %>
-            <%= form.text_field :type_id %>
-         </div>
-         <div>
-            <%= form.label "一言" %>
-            <%= form.text_field :comments %>
-         </div>
-         <div>
-            <%= form.submit "更新" %>
-         </div>
-       <% end %>
+          <div>
+             <%= form.label "ユーザーネーム" %>
+             <%= form.text_field :user_name %>
+          </div>
+          <div>
+             <%= form.label "学校名" %>
+             <%= form.text_field :school_id %>
+          </div>
+          <div>
+             <%= form.label "プロフィール画像" %>
+             <%= form.text_field :profile_image %>
+          </div>
+          <div>
+             <%= form.label "学年" %>
+             <%= form.text_field :grade %>
+          </div>
+          <div>
+             <%= form.label "部活動" %>
+             <%= form.text_field :club_id %>
+          </div>
+          <div>
+             <%= form.label "性別" %>
+             <%= form.text_field :type_id %>
+          </div>
+          <div>
+             <%= form.label "一言" %>
+             <%= form.text_field :comments %>
+          </div>
+          <div>
+             <%= form.submit "更新" %>
+          </div>
+        <% end %>
       </div>
     </div>
     <%= @user.profile.user_name %>
