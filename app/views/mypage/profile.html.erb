@@ -65,12 +65,10 @@
     <div class = "good_list">
       <h3>いいね一覧</h3>
          <% @goods.each do |g| %>
+            <%= g.good_user.profile.profile_image%>
             <%= g.good_user.profile.user_name %>
          <% end %>
     </div>
-    
-    
-
     
   </body>
 </html>
