@@ -11,6 +11,7 @@
 
   <body>
     <div class="my_profile">
+      <br>
       <%= @user.login %>
       <br>
       <%= @user.profile.user_name %>
@@ -61,11 +62,13 @@
     <%= @user.profile.user_name %>
     <%= @user.profile.user_name %>
    <%# ここからいいね一覧 %>
-   <div>
-   </div>
-    
-    
-
+    <div class = "good_list">
+      <h3>いいね一覧</h3>
+         <% @goods.each do |g| %>
+            <%= g.good_user.profile.profile_image%>
+            <%= g.good_user.profile.user_name %>
+         <% end %>
+    </div>
     
   </body>
 </html>

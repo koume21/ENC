@@ -2,6 +2,7 @@ class MypageController < ApplicationController
   def profile
     @user = User.find(1)
     @profile = @user.profile
+    @goods = Good.where("user_id = 1")
   end
 
   def update
