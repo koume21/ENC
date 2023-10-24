@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+  <head>
+  </head>
+   <body>
+     <h1>設定<h1>
+     <%= form_with url: '/setting/update',model: @setting do |form| %>
+         <div>
+            <%= form.label "ユーザーID" %>
+             <%= form.text_field :login %>
+         </div>
+          <div>
+            <%= form.label "パスワード" %>
+            <%= form.text_field :password %>
+          </div>
+         <%= form.submit %>
+     <% end %>
+    </body>
+<html>

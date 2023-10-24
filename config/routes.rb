@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'setting/index'
+  patch 'setting/update'
   resources :chats
   resources :room_members
   resources :rooms
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   get 'login/login'
   post 'login/create'
   root to: 'login#login'
-
+  
   get 'new_account/new'
   post '/new_account/new' => 'new_account#create'
   
