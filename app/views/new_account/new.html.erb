@@ -2,18 +2,22 @@
 <%= form_tag(action: :create,method: :post) do %>
 
   <body>
-    <h1>新規登録</h1>
+    <h1>出雲市高校生マッチングアプリ</h1>
+    <h2>新規登録</h2>
     <%= form_tag action: :new do %>
       <div>
         <%= label_tag 'ユーザーネーム' %>
+        <br>
         <%= text_field_tag :user_name %>
       </div>
       <div> 
         <%= label_tag "ユーザーＩＤ" %>
+        <br>
         <%= text_field_tag :user_id %>
       </div>
       <div>
         <%= label_tag 'パスワード' %>
+        <br>
         <%= text_field_tag :password %>
       </div>
       <%= submit_tag '新規登録' %>

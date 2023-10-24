@@ -6,14 +6,15 @@ class MypageController < ApplicationController
 
   def update
     profile = Profile.find_by(user_id: 1)
+
     if profile.update(profile_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to mypage_profile_path,notice:"Update successed"
     else
-      redirect_to '/mypage/profile'
+      redirect_to mypage_profile_path,notice:"Update loss"
     end
   end
   private
   def profile_params
-    params.require(:profile).permit(:user_name, :school, :profile_image, :grade, :club, :type, :comments)
+    params.require(:profile).permit(:user_name, :school_id, :profile_image, :grade, :club_id, :type_id, :comments)
   end
 end

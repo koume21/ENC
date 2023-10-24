@@ -5,11 +5,10 @@ class NewAccountController < ApplicationController
   def create
     @user = User.new(login: params[:user_id],password: params[:password])
     if @user.save
-      @profile = Profile.new(user_id: params[:id])
+      @profile = Profile.new(user_id: @user.id)
       if @profile.save
+        session[:login_id] = @user.id
         redirect_to '/mypage/profile'
-      else
-        p 'a'
       end
     else
       render :new

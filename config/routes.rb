@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :schools
   resources :profiles
   get 'mypage/profile'
-  post 'mypage/profile' => 'mypage#update'
+  patch 'mypage/update'
   get 'login/login'
   post 'login/create'
   root to: 'login#login'

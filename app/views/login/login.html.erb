@@ -7,24 +7,32 @@
   </head>
 
   <body>
-     <h1>ログイン</h1>
-     
-     <% flash.each do |message_type, message| %>
-       <%= message %>
-     <% end %>
+    <h1>出雲市高校生マッチングアプリ</h1>
+    <h2>ログイン</h2>
+    
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
 
-       <%= form_tag action: :create do %>
-         <div>
-            <%= label_tag "ユーザーＩＤ" %>
-            <%= text_field_tag :user_id %>
-         </div>
-         <div>
-            <%= label_tag "パスワード" %>
-            <%= text_field_tag :password %>
-         </div>
-         <div>
-            <%= submit_tag "ログイン" %>
-         </div>
-       <% end %>
+      <%= form_tag action: :create do %>
+        <div>
+          <%= label_tag "ユーザーＩＤ" %>
+          <br>
+          <%= text_field_tag :user_id %>
+        </div>
+        <div>
+          <%= label_tag "パスワード" %>
+          <br>
+          <%= text_field_tag :password %>
+        </div>
+        <div>
+          <%= submit_tag "ログイン" %>
+        </div>
+      <% end %>
+
+  <p>
+  <%= link_to "新規登録", "http://localhost:3000/new_account/new" %>
+  </p>
+  
   </body>
 </html> 

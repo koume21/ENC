@@ -18,14 +18,14 @@
       <%= @user.profile.comments %>
       <p>プロフィール編集</p>
       <div class=modal>
-        <%= form_with model: @profile do |form| %>
+        <%= form_with url: "/mypage/update",model: @profile do |form| %>
          <div>
             <%= form.label "ユーザーネーム" %>
             <%= form.text_field :user_name %>
          </div>
          <div>
             <%= form.label "学校名" %>
-            <%= form.text_field :school %>
+            <%= form.text_field :school_id %>
          </div>
          <div>
             <%= form.label "プロフィール画像" %>
@@ -37,11 +37,11 @@
          </div>
          <div>
             <%= form.label "部活動" %>
-            <%= form.text_field :club %>
+            <%= form.text_field :club_id %>
          </div>
          <div>
             <%= form.label "性別" %>
-            <%= form.text_field :type %>
+            <%= form.text_field :type_id %>
          </div>
          <div>
             <%= form.label "一言" %>
@@ -60,7 +60,10 @@
     <%= @user.profile.user_name %>
     <%= @user.profile.user_name %>
     <%= @user.profile.user_name %>
-
+   <%# ここからいいね一覧 %>
+   <div>
+   <%= @user.login_id %>
+   </div>
     
     
 
