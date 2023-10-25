@@ -18,7 +18,13 @@ body {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+.card-body {
+    background-color: rgb(236, 236, 236);
+}
+
 .main {
+    text-align: center;
     min-width:100%;
 }
 .card-center {
