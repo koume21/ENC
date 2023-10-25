@@ -1,24 +1,28 @@
 /* // Place all the styles related to the login controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
-/* body{
+
+
+html {
+    height: 100%;
+
+	padding: 0;
+	display: table;
+}
+
+body {
     background-color: rgb(255, 146, 197);
+    min-height: 100%;
+    min-width:100%;
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
 }
-p {
-    color: red;
-    margin:0px;
+.main {
+    min-width:100%;
 }
-h1 {
-    margin:0px;
+.card-center {
+    margin:0 auto;
 }
-.move{
-    width:50%;
-    border: 1px solid black;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px #4e4e4e;
-    padding:20px;
-    margin: auto;
-    box-sizing:border-box;
-    text-align:center;
-    
-} */
+
+
