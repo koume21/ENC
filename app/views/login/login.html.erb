@@ -16,12 +16,12 @@
       <% end %>
 
         <%= form_tag action: :create do %>
-          <div class = "card-text">
+          <div class = "card-text input">
             <%= label_tag "ユーザーＩＤ" %>
             <br>
             <%= text_field_tag :user_id, "", {class:"form-control"} %>
           </div>
-          <div class = "card-text">
+          <div class = "card-text input">
             <%= label_tag "パスワード" %>
             <br>
             <%= text_field_tag :password, "" , {class:"form-control"} %>
