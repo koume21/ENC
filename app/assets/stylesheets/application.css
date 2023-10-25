@@ -13,4 +13,29 @@
  *= require_tree .
  *= require_self
  */
+body {
+min-height: 100vh;
+min-height: -webkit-fill-available;
+margin:0;
+padding:0;
+}
+
+html {
+height: -webkit-fill-available;
+}
+
+main {
+height: 100vh;
+height: -webkit-fill-available;
+max-height: 100vh;
+overflow-x: auto;
+overflow-y: hidden;
+}
+.column {
+    display:flex;
+    min-height:100vh;
+}
+.sidebar_size {
+    min-height:100%;
+}
 
