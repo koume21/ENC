@@ -18,7 +18,7 @@
         <div>
           <%= label_tag "ユーザーＩＤ" %>
           <br>
-          <%= text_field_tag :user_id %>
+          <input type="text" name="user_id" id="user_id">
         </div>
         <div>
           <%= label_tag "パスワード" %>
@@ -26,7 +26,7 @@
           <%= text_field_tag :password %>
         </div>
         <div>
-          <%= submit_tag "ログイン" %>
+          <input type="submit" value="ログイン" class="btn btn-dark">
         </div>
       <% end %>
 
