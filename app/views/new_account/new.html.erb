@@ -5,9 +5,9 @@
    <%= stylesheet_link_tag 'new_account', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-   <form class="text-center">
-      <h1>出雲市高校生マッチングアプリ</h1>
-      <div class="">
+      <h1 class="text-center">出雲市高校生マッチングアプリ</h1>
+    <div class="card-body text-center card card-center">
+      <div>
           <h2>新規登録</h2>
           <%= form_tag(action: :create,method: :post) do %>
             <div>
@@ -30,7 +30,7 @@
             <%= link_to "ログイン", "http://localhost:3000/login/login" %>
           <% end %>
         </div>
-    <form>
+    </div>
   </body>
 </html>
   
