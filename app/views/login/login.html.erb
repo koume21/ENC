@@ -8,8 +8,7 @@
 
   <body>
     <h1 class = "mb-5">出雲市高校生マッチングアプリ</h1>
-    <form class = "text-center card">
-    <div classs  = "card-body">
+    <div class  = "card-body text-center card card-center">
       <h2 class = "card-text">ログイン</h2>
       
       <% flash.each do |message_type, message| %>
@@ -32,9 +31,8 @@
           </div>
         <% end %>
     </div>
-  <p  class = "text-center">
+  <p class="text-center">
   <%= link_to "新規登録", "http://localhost:3000/new_account/new" %>
   </p>
-  </form>
   </body>
 </html> 
