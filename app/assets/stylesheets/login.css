@@ -1,8 +1,10 @@
 /* // Place all the styles related to the login controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
-/* body{
-    background-color: rgb(255, 146, 197);
+
+body {
+    height: 100%;
+    background-color: cornflowerblue;
 }
 p {
     color: red;
@@ -44,3 +46,5 @@ body {
 .card-center {
     margin:0 auto;
 }
+
+
