@@ -1,81 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ENC</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+   <head>
+      <title>ENC</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'mypage', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= stylesheet_link_tag 'mypage', media: 'all', 'data-turbolinks-track': 'reload' %>
+   </head>
 
   <body>
-    <div class="column">
-      <div class="sidebar_size">
-        <%= render partial: 'sidebar' %>
-      </div>
-      <div class="main">
-         <div class="my_profile">
-            <br>
-            <%= @user.login %>
-            <br>
+      <div class="column">
+         <div class="sidebar_size">
+            <%= render partial: 'sidebar' %>
+         </div>
+         <div class="main">
+            <div class="my_profile">
+               <br>
+               <%= @user.login %>
+               <br>
+               <%= @user.profile.user_name %>
+               <br>
+               <%= @user.profile.comments %>
+               <br/>
+               <p class="btn btn-primary" id="modal-open">プロフィール編集</p>
+               <div class="modal-window" id="Modal">
+                  <div class="modal-header">
+                     <h1>プロフィール編集</h1>
+                     <span class="modalClose">×</span>
+                  </div>
+                  <div class="modal-contents">
+                     <%= form_with url: "/mypage/update",model: @profile do |form| %>
+                        <div>
+                           <%= form.label "ユーザーネーム" %>
+                           <%= form.text_field :user_name %>
+                        </div>
+                        <div>
+                           <%= form.label "学校名" %>
+                           <%= form.text_field :school_id %>
+                        </div>
+                        <div>
+                           <%= form.label "プロフィール画像" %>
+                           <%= form.text_field :profile_image %>
+                        </div>
+                        <div>
+                           <%= form.label "学年" %>
+                           <%= form.text_field :grade %>
+                        </div>
+                        <div>
+                           <%= form.label "部活動" %>
+                           <%= form.text_field :club_id %>
+                        </div>
+                        <div>
+                           <%= form.label "性別" %>
+                           <%= form.text_field :type_id %>
+                        </div>
+                        <div>
+                           <%= form.label "一言" %>
+                           <%= form.text_field :comments %>
+                        </div>
+                        <div>
+                           <%= form.submit "更新" %>
+                        </div>
+                     <% end %>
+                  </div>
+               </div>
+            </div>
             <%= @user.profile.user_name %>
-            <br>
-            <%= @user.profile.comments %>
-            <p>プロフィール編集</p>
-            <div class=modal>
-            <%= form_with url: "/mypage/update",model: @profile do |form| %>
-               <div>
-                  <%= form.label "ユーザーネーム" %>
-                  <%= form.text_field :user_name %>
-               </div>
-               <div>
-                  <%= form.label "学校名" %>
-                  <%= form.text_field :school_id %>
-               </div>
-               <div>
-                  <%= form.label "プロフィール画像" %>
-                  <%= form.text_field :profile_image %>
-               </div>
-               <div>
-                  <%= form.label "学年" %>
-                  <%= form.text_field :grade %>
-               </div>
-               <div>
-                  <%= form.label "部活動" %>
-                  <%= form.text_field :club_id %>
-               </div>
-               <div>
-                  <%= form.label "性別" %>
-                  <%= form.text_field :type_id %>
-               </div>
-               <div>
-                  <%= form.label "一言" %>
-                  <%= form.text_field :comments %>
-               </div>
-               <div>
-                  <%= form.submit "更新" %>
-               </div>
-            <% end %>
+            <%= @user.profile.school_id %>
+            <%= @user.profile.profile_image %>
+            <%= @user.profile.grade %>
+            <%= @user.profile.user_name %>
+            <%= @user.profile.user_name %>
+            <%= @user.profile.user_name %>
+            <%# ここからいいね一覧 %>
+            <div class = "good_list">
+               <h3>いいね一覧</h3>
+                  <% @goods.each do |g| %>
+                     <%= g.good_user.profile.profile_image%>
+                     <%= g.good_user.profile.user_name %>
+                  <% end %>
             </div>
          </div>
-         <%= @user.profile.user_name %>
-         <%= @user.profile.school_id %>
-         <%= @user.profile.profile_image %>
-         <%= @user.profile.grade %>
-         <%= @user.profile.user_name %>
-         <%= @user.profile.user_name %>
-         <%= @user.profile.user_name %>
-         <%# ここからいいね一覧 %>
-         <div class = "good_list">
-            <h3>いいね一覧</h3>
-               <% @goods.each do |g| %>
-                  <%= g.good_user.profile.profile_image%>
-                  <%= g.good_user.profile.user_name %>
-               <% end %>
-         </div>
       </div>
-    </div>
-    
-  </body>
+      <%= javascript_pack_tag 'mypage' %>
+   </body>
 </html>
