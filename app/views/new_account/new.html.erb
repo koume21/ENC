@@ -6,7 +6,7 @@
   </head>
   <body>
       <h1 class="text-center">出雲市高校生マッチングアプリ</h1>
-    <div class="card-body text-center card card-center">
+    <div class="">
       <div>
           <h2>新規登録</h2>
           <%= form_tag(action: :create,method: :post) do %>
@@ -25,7 +25,9 @@
               <br>
               <%= text_field_tag :password %>
             </div>
-            <%= submit_tag'新規登録' %>
+            <div class="backgroud-hart">
+              <%= submit_tag'新規登録' %>
+            </div>
             <br>
             <%= link_to "ログイン", "http://localhost:3000/login/login" %>
           <% end %>
