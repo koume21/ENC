@@ -18,7 +18,7 @@ body {
 	padding: 0;
 	display: table-cell;
     vertical-align: middle;
-    line-height: 20px;
+    line-height: 30px;
 }
 
 h2 b {
@@ -44,7 +44,12 @@ h2 b {
 }
 
 .input {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom:20px;
+    font-size:20px;
 }
 
 
