@@ -18,11 +18,25 @@ body {
 	padding: 0;
 	display: table-cell;
     vertical-align: middle;
-    line-height: 20px;
+    line-height: 30px;
+}
+
+h2 b {
+    font-size: 30px;
 }
 
 .card-body {
+    padding: 50px 0 ;
+    border-radius:3rem;
     background-color: rgb(236, 236, 236);
+}
+.card-body input[type="text"] {
+    width: 70%;
+    margin:0 auto;
+}
+
+.card-text {
+    font-size: 20px;
 }
 
 .card-center {
@@ -30,7 +44,12 @@ body {
 }
 
 .input {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom:20px;
+    font-size:20px;
 }
 
 
