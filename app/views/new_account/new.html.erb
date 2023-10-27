@@ -24,14 +24,18 @@
               <br>
               <%= text_field_tag :password,"",{class:"form-control"}%>
             </div>
-            <div class="card-text">
-              <%= submit_tag '新規登録' %>
+            <div class="text-center">
+               <div class="heart">
+                  <%= submit_tag "新規登録" %>
+               </div>
             </div>
             <br>
-            <%= link_to "ログイン", "http://localhost:3000/login/login" %>
           <% end %>
         </div>
       </div>
+      <p class="text-center">
+        <%= link_to "ログイン", "http://localhost:3000/login/login" %>
+      </p>
   </body>
 </html>
   
