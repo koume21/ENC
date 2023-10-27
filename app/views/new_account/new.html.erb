@@ -5,32 +5,33 @@
    <%= stylesheet_link_tag 'new_account', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-      <h1 class="text-center">出雲市高校生マッチングアプリ</h1>
-    <div class="card-body text-center card card-center">
-      <div>
-          <h2>新規登録</h2>
+      <h1 class="mb-5">出雲市高校生マッチングアプリ</h1>
+      <div class="card-body text-center card card-center">
+        <h2 class = "card-text">新規登録</h2>
           <%= form_tag(action: :create,method: :post) do %>
-            <div>
+            <div class = "card-text input">
               <%= label_tag 'ユーザーネーム' %>
               <br>
-              <%= text_field_tag :user_name%>
+              <%= text_field_tag :user_name,"",{class:"form-control"}%>
             </div>
-            <div> 
+            <div class ="card-text input"> 
               <%= label_tag "ユーザーＩＤ" %>
               <br>
-              <%= text_field_tag :user_id %>
+              <%= text_field_tag :user_id,"",{class:"form-control"}%>
             </div>
-            <div>
+            <div class ="card-text">
               <%= label_tag 'パスワード' %>
               <br>
-              <%= text_field_tag :password %>
+              <%= text_field_tag :password,"",{class:"form-control"}%>
             </div>
-            <%= submit_tag'新規登録' %>
+            <div class="card-text">
+              <%= submit_tag '新規登録' %>
+            </div>
             <br>
             <%= link_to "ログイン", "http://localhost:3000/login/login" %>
           <% end %>
         </div>
-    </div>
+      </div>
   </body>
 </html>
   
