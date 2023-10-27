@@ -1,6 +1,13 @@
 /* // Place all the styles related to the new_account controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/ */
+html {
+    height: 100%;
+    margin: 0 auto;
+	padding: 0;
+	display: table;
+}
+
 body{
         background-color: rgb(145, 251, 216);
         min-height: 100%;
@@ -10,8 +17,24 @@ body{
         display: table-cell;
         vertical-align: middle;
         line-height: 20px;
+
 }
 .background-hart {
     background-image: url(app/assets/images/hart.png);
 }
+.card-body {
+    background-color: rgb(236, 236, 236);
+    border-radius: 3rem;
+}
+.card-center {
+    margin:0 auto;
+}
+.input {
+    margin-bottom: 20px;
+}
+.card-text{
+    padding-bottom: 2rem;
+    font-size:20px;
+}
+
 
