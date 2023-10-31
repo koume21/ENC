@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'search/index'
   get 'setting/index'
   patch 'setting/update'
   resources :chats
