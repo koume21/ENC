@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'chat_room/chat_page'
   get 'search/index'
   get 'setting/index'
   patch 'setting/update'

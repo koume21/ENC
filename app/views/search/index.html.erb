@@ -1,6 +1,15 @@
 <h1>検索</h1>
 <p>Find me in app/views/search/index.html.erb</p>
-<%#　ここからランキング　%>
+
+<!DOCTYPE html>
+  <head>
+  </head>
+    <body>
+      <h1>検索<h1>
+              
+    </body>
+
+    <%#　ここからランキング　%>
 
 <h3>ランキング</h3>
 <% @good_ranks.each do |g| %>
@@ -8,3 +17,5 @@
     <%= g.profile.user_name %>
     <br/>
 <% end %>
+
+<html>
