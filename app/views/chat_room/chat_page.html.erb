@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <%# <meta name="viewport" content="width=device-width, initial-scale=1.0"> %>
+    <title>チャットページ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'chat_room', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <div class="column">
+        <div class="sidebar_size">
+            <%= render partial: 'sidebar' %>
+        </div>
+        <h1>チャット</h1>
+        <div class="user_name">
+            <% @user_name.each do |usr| %>
+                <div class="user">
+                    <%= usr %>
+                </div>
+                <br>
+            <% end %>
+        </div>
+    </div>
+</body>
+</html>
