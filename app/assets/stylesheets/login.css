@@ -13,7 +13,6 @@ html {
 body {
     background-color: rgb(255, 146, 197);
     min-height: 100%;
-    min-width:100%;
     margin: 0 auto;
 	padding: 0;
 	display: table-cell;
@@ -30,6 +29,7 @@ h2 b {
     border-radius:3rem;
     background-color: rgb(236, 236, 236);
 }
+
 .card-body input[type="text"] {
     width: 70%;
     margin:0 auto;

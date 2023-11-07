@@ -5,6 +5,7 @@ class LoginController < ApplicationController
   def create
     user = User.find_by(login: params[:user_id])
     if user && user.password == params[:password] then
+      session[:login_id] = user.id
       redirect_to '/mypage/profile'
     else
       flash.now[:danger] = "ユーザーＩＤかパスワードが違います"
