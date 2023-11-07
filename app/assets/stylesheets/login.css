@@ -29,6 +29,7 @@ h2 b {
     border-radius:3rem;
     background-color: rgb(236, 236, 236);
 }
+
 .card-body input[type="text"] {
     width: 70%;
     margin:0 auto;
