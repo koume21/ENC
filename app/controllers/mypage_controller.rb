@@ -1,5 +1,8 @@
 class MypageController < ApplicationController
   def profile
+    @schools = School.all
+    @clubs = Club.all
+    @types = Type.all
     login_id = session[:login_id]
     @user = User.find(login_id)
     @profile = @user.profile
