@@ -15,17 +15,13 @@
       </select>
       <%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
       <%= collection_select(:type, :name, @types, :id, :name, {:include_blank => true}) %> 
-
-        
+      <%#　ここからランキング　%>
+      <h3>ランキング</h3>
+      <% @good_ranks.each do |g| %>
+        <%= g.login %>
+        <%= g.profile.user_name %>
+        <br/>
+      <% end %>
+    
     </body>
-
-    <%#　ここからランキング　%>
-
-<h3>ランキング</h3>
-<% @good_ranks.each do |g| %>
-    <%= g.login %>
-    <%= g.profile.user_name %>
-    <br/>
-<% end %>
-
-<html>
+  <html>

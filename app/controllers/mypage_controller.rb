@@ -1,12 +1,14 @@
 class MypageController < ApplicationController
   def profile
-    @user = User.find(1)
+    login_id = session[:login_id]
+    @user = User.find(login_id)
     @profile = @user.profile
-    @goods = Good.where("user_id = 1")
+    @goods = Good.where(user_id: login_id)
   end
 
   def update
-    profile = Profile.find_by(user_id: 1)
+    login_id = session[:login_id]
+    profile = Profile.find_by(user_id: login_id)
 
     if profile.update(profile_params)
       redirect_to mypage_profile_path,notice:"Update successed"
