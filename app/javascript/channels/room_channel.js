@@ -10,14 +10,16 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
-    return alert(data['message'])
+    const message = document.getElementById('message');
+    message.insertAdjacentHTML('beforeend', data['message'])
+    console.log(data['message']);
   },
 
-  speak: function() {
+  speak: function(message) {
     return this.perform('speak',{message: message});
   }
 });
-window.addEventListener("key", function(e) {
+window.addEventListener("keydown", function(e) {
   if (e.key === 'Enter') {
     appRoom.speak(e.target.value)
     e.target.value='';
