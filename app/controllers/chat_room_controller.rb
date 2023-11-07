@@ -16,4 +16,9 @@ class ChatRoomController < ApplicationController
       end
     end
   end
+
+
+  def show
+    @messages = Chat.all
+  end
 end

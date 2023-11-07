@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   get 'chat_room/chat_page'
+  get 'chat_room/show'
   get 'search/index'
   get 'setting/index'
   patch 'setting/update'
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   get 'new_account/new'
   post '/new_account/new' => 'new_account#create'
   
+  mount ActionCable.server => '/cable'
+
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
