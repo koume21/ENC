@@ -37,7 +37,7 @@
                         </div>
                         <div>
                           <%= form.label "学校名" %> 
-                          <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => false}) %>
+                          <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => true}) %>
                         </div>
                         <div>
                            <%= form.label "プロフィール画像" %>
@@ -53,7 +53,7 @@
                         </div>
                         <div>
                            <%= form.label "部活動" %>
-                           <%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => false}) %> 
+                           <%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
                         </div>
                         <div>
                           <%= form.label "性別" %>

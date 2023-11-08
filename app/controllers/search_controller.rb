@@ -6,5 +6,7 @@ class SearchController < ApplicationController
     @clubs = Club.all
     @types = Type.all
   end
-  
+  def search
+    
+  end
 end
