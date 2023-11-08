@@ -8,7 +8,7 @@
 
   <body>
     <h1 class = "mb-5 text-center"><b>出雲市高校生マッチングアプリ</b></h1>
-    <div class  = "card-body card text-center card-center">
+    <div class  = "card-body card text-center">
       <h2 class = "card-title mb-5"><b>ログイン</b></h2>
       
       <% flash.each do |message_type, message| %>
@@ -19,12 +19,12 @@
           <div class = "card-text input">
             <%= label_tag "ユーザーＩＤ" %>
             <br>
-            <%= text_field_tag :user_id, "",{class:"form-control"}%>
+            <%= text_field_tag :user_id, "",{class:"form-control"} %>
           </div>
           <div class = "card-text input">
             <%= label_tag "パスワード" %>
             <br>
-            <%= text_field_tag :password, "",{class:"form-control"}%>
+            <%= text_field_tag :password, "",{class:"form-control"} %>
           </div>
           <div class = "heart">
             <div class = "button">
