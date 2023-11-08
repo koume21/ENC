@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>チャット</title>
+    <%= stylesheet_link_tag 'chat_show', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 </head>
 <body>
-    <div class="chat" id="message">
-        <%= render partial: 'message', locals:{message:@messages} %>
-    </div>
-    <form>
-        <label>メッセージ</label>
-        <input type="text" data-behavior="room_speaker">
-    </form>
+    <main>
+        <div class="column">
+            <div class="sidebar_size">
+                <%= render partial: 'sidebar' %>
+            </div>
+            <div>
+                <div class="chat" id="message">
+                    <%= render partial: 'message', collection: @messages %>
+                </div>
+                <form>
+                    <label>メッセージ</label>
+                    <input type="text" data-behavior="room_speaker">
+                    <input type="submit" value="送信">
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
