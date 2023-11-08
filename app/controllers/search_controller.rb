@@ -5,6 +5,7 @@ class SearchController < ApplicationController
     @schools = School.all
     @clubs = Club.all
     @types = Type.all
+
   end
   
 end

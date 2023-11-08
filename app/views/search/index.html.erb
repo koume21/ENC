@@ -1,32 +1,26 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> ddd9f2689122ba3b2b18b8c3b8d66fc08c636471
 <!DOCTYPE html>
   <head>
   </head>
    <body>
       <h1>検索</h1>
-      <table>
           <div>
-          　<tr>学校名</tr>
-            <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => true}) %>
+          　<p>学校名<p>
+            <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => false}) %>
           </div>
           <div>
-            <tr>学年</tr>
+           <p>学年<p>
             <select name="grade">
-              <option value="1" label=""></option>
               <option value="1" label="1年"></option>
               <option value="2" label="2年"></option>
               <option value="3" label="3年"></option>
             </select>
           </div>
           <div>
-          　<tr>部活動名</tr>
+          　<p>部活動名<p>
           　<%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
           </div>
           <div>
-            <tr>性別</tr>
+            <p>性別<p>
           <%= collection_select(:type, :name, @types, :id, :name, {:include_blank => true}) %> 
       </table>
       <%#　ここからランキング　%>
