@@ -30,12 +30,17 @@
             </div> 
         <% end %>
       <%#　ここからランキング　%>
-      <h3>ランキング</h3>
-      <% @good_ranks.each do |g| %>
-        <%= g.login %>
-        <%= g.profile.user_name %>
-        <br/>
-      <% end %>
+      <table>
+      <h3><b>ランキング</b></h3>
+          <% @good_ranks.each.with_index(1) do |g, i| %>
+          <tr>
+          <td><%= i %>位</td>
+          <td><%= g.profile.user_name %></td>
+          <td><%= g.login %></td>
+            <br/>
+          <% end %>
+        </tr>
+      </table>
     
     </body>
   <html>
