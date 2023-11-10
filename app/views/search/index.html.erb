@@ -3,10 +3,10 @@
   </head>
    <body>
       <h1>検索</h1>
-        <%= form_tag(action: :search) do%>
+        <%= form_tag({controller:"search",action:"search"}, method: :post) do%>
             <div>
             　<p>学校名<p>
-              <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => false}) %>
+              <%= collection_select(:school, :id, @schools, :id, :name, {:include_blank => false}) %>
             </div>
             <div>
             <p>学年<p>
