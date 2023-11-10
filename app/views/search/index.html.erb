@@ -3,39 +3,63 @@
   </head>
    <body>
       <h1>検索</h1>
+        <table>
+          <tr>
+            <th></th>
+            <th>学校名</th>
+            <th>学年</th>
+            <th>部活動</th>
+            <th>性別</th>
+          </tr>
         <%= form_tag({controller:"search",action:"search"}, method: :post) do%>
-            <div>
-            　<p>学校名<p>
-              <%= collection_select(:school, :id, @schools, :id, :name, {:include_blank => false}) %>
-            </div>
-            <div>
-            <p>学年<p>
-              <select name="grade">
-                <option value="0" label="選択してください"></option>
-                <option value="1" label="1年"></option>
-                <option value="2" label="2年"></option>
-                <option value="3" label="3年"></option>
-              </select>
-            </div>
-            <div>
-            　<p>部活動名<p>
-            　<%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
-            </div>
-            <div>
-              <p>性別<p>
-            　<%= collection_select(:type, :name, @types, :id, :name, {:include_blank => true}) %> 
-  　　　　　</div>
-            <div class = "button">
-                <%= submit_tag "検索" %>
-            </div> 
+          <tr>
+            <td>
+              <div class = "button">
+                  <%= submit_tag "検索" %>
+              </div> 
+            </td>
+            <td>
+              <div>
+                <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => false}) %>
+              </div>
+            </td>
+            <td>
+              <div>
+                <select name="grade">
+                  <option value="0" label="選択してください"></option>
+                  <option value="1" label="1年"></option>
+                  <option value="2" label="2年"></option>
+                  <option value="3" label="3年"></option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div>
+              　<%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
+              </div>
+            </td>
+            <td>
+              <div>
+              　<%= collection_select(:type, :name, @types, :id, :name, {:include_blank => true}) %> 
+              </div>
+            </td>
+          </tr>
         <% end %>
+        </table>
       <%#　ここからランキング　%>
-      <h3>ランキング</h3>
-      <% @good_ranks.each do |g| %>
-        <%= g.login %>
-        <%= g.profile.user_name %>
-        <br/>
-      <% end %>
+      <h3><b>ランキング</b></h3>
+      <div class = "ranking">
+      <table>
+          <% @good_ranks.each.with_index(1) do |g, i| %>
+          <tr>
+          <td><%= i %>位</td>
+          <td><%= g.profile.user_name %></td>
+          <td><%= g.login %></td>
+            <br/>
+          <% end %>
+        </tr>
+      </table>
+      </div>
     
     </body>
   <html>

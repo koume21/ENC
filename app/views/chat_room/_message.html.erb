@@ -1,7 +1,9 @@
 
 <div class="message">
-    <% message.each do |m| %>
-        <%= m.message %>
-        <br>
+    <% if message.present? %>
+        <p><%= message.message %></p>
+    <% else %>
+        <p>メッセージがありません</p>
     <% end %>
+    
 </div>
