@@ -1,4 +1,5 @@
 class MypageController < ApplicationController
+  before_action :login_session
   def profile
     @schools = School.all
     @clubs = Club.all
@@ -20,6 +21,12 @@ class MypageController < ApplicationController
     end
   end
   private
+  def login_session
+    if session[:login_id] == nil
+      flash[:notice] = 'ログインしていません'
+      redirect_to '/'
+    end
+  end
   def profile_params
     params.require(:profile).permit(:user_name, :school_id, :profile_image, :grade, :club_id, :type_id, :comments)
   end

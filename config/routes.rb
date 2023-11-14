@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'chat_room/chat_page'
   post 'chat_room/chat_page' => 'chat_room#show'
   get 'search/index'
-  post 'search/search'
+  post 'search/index' => 'search#search'
   get 'setting/index'
   patch 'setting/update'
   resources :chats

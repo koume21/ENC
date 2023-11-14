@@ -1,4 +1,5 @@
 class ChatRoomController < ApplicationController
+  before_action :login_session
   def chat_page
     # 全ユーザーの取得
     @user = User.all
@@ -29,7 +30,14 @@ class ChatRoomController < ApplicationController
     @messages = Chat.all
 
     redirect_to chat_room_chat_page_path
-  end 
+  end
+  private
+  def login_session
+    if session[:login_id] == nil
+      flash[:notice] = 'ログインしていません'
+      redirect_to '/'
+    end
+  end
 end
 
 # クリックしたユーザーのＩＤを取得
