@@ -1,4 +1,5 @@
 class ChatRoomController < ApplicationController
+  before_action :login_session
   def chat_page
     @user = User.all
     @rooms = Room.all
@@ -20,5 +21,12 @@ class ChatRoomController < ApplicationController
 
   def show
     @messages = Chat.all
+  end
+  private
+  def login_session
+    if session[:login_id] == nil
+      flash[:notice] = 'ログインしていません'
+      redirect_to '/'
+    end
   end
 end

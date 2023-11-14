@@ -1,5 +1,6 @@
 class LoginController < ApplicationController
   def login
+    session[:login_id] = nil
   end
 
   def create
