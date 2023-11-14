@@ -13,15 +13,29 @@
         <div class="sidebar_size">
             <%= render partial: 'sidebar' %>
         </div>
-        <h1>チャット</h1>
-        <div class="user_name">
-            <% @user_name.each do |usr| %>
-                <div class="user">
-                    <%= usr %>
-                </div>
-                <br>
-            <% end %>
+        <div>
+            <h1>チャット</h1>
+            <div class="user_name">
+                <% @user_name.each do |usr| %>
+                    <div class="user">
+                        <%= button_to usr, {controller: 'chat_room',action: 'show'}, {method: :post} %>
+                    </div>
+                    <br>
+                <% end %>
+            </div>
         </div>
+        <div>
+            <div class="chat" id="message">
+                <%= render partial: 'message', collection: @messages %>
+            </div>
+            <form>
+                <label>メッセージ</label>
+                <input type="text" data-behavior="room_speaker">
+                <input type="submit" value="送信">
+            </form>
+        </div>
+
+        
     </div>
 </body>
 </html>
