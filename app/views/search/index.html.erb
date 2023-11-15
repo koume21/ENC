@@ -55,17 +55,30 @@
       <%#　ここからランキング　%>
       <h3><b>ランキング</b></h3>
       <div class = "ranking">
-      <table>
-          <% @good_ranks.each.with_index(1) do |g, i| %>
-          <tr>
-          <td><%= i %>位</td>
-          <td><%= g.profile.user_name %></td>
-          <td><%= g.login %></td>
-            <br/>
-          <% end %>
-        </tr>
-      </table>
+        <table>
+            <% @good_ranks.each.with_index(1) do |g, i| %>
+            <tr>
+            <td><%= i %>位</td>
+            <td><%= g.profile.user_name %></td>
+            <td><%= g.login %></td>
+            <% end %>
+          </tr>
+        </table>
       </div>
-    
+        <% if good_by?(current_user) %>
+          <p>
+            <%= link_to good_path(good), method: :delete do %>
+            <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+              ♥<%= good.count %> いいね
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to good_path(good), method: :post do %>
+            <i class="fas fa-heart" aria-hidden="true"></i>
+              ♡<%= good.count %> いいね
+            <% end %>
+          </p>
+        <% end %>
     </body>
   <html>
