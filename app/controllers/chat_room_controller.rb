@@ -1,36 +1,22 @@
 class ChatRoomController < ApplicationController
   before_action :login_session
   def chat_page
-    # 全ユーザーの取得
-    @user = User.all
-    # 全ルームの取得
-    @rooms = Room.all
-    # ログインＩＤが入っているルームの取得
-    @user_room = RoomMember.where("user_id = ?",session[:login_id])
-    # ログインユーザーがチャットしている相手を格納する配列
-    @user_name = []
-    @user_id = []
-    @messages = Chat.all
+    @messages = nil
+    session[:room_id] = nil
     # ユーザーがルームに参加している場合
-    if @user_room.present?
-      @user_room.each do |room|
-        rm = RoomMember.where("room_id = ?",room.room_id)
-        rm.each do |m|
-          if m.user_id != room.user_id
-            usr = User.find(m.user_id)
-            @user_id << usr.id
-            @user_name << usr.profile.user_name
-          end
-        end
-      end
-    end
+    @rooms = Room.joins(:room_members).where("room_members.user_id = ?", session[:login_id])
   end
 
   def show
-    @messages = Chat.all
-
-    redirect_to chat_room_chat_page_path
+    @room_id = params[:room_id]
+    session[:room_id] = @room_id
+    p @room_id
+    p "*************************************************************"
+    @rooms = Room.joins(:room_members).where("room_members.user_id = ?", session[:login_id])
+    @messages = Chat.where(room_id: @room_id)
   end
+
+
   private
   def login_session
     if session[:login_id] == nil
