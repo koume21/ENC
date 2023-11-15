@@ -1,4 +1,5 @@
 class SettingController < ApplicationController
+  before_action :login_session
   def index
     @setting = User.find(1)
   end
@@ -16,6 +17,12 @@ class SettingController < ApplicationController
   def destory
   end
   private
+  def login_session
+    if session[:login_id] == nil
+      flash[:notice] = 'ログインしていません'
+      redirect_to '/'
+    end
+  end
   def user_params
     params.require(:user).permit(:login,:password)
   end

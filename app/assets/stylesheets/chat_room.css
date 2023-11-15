@@ -4,18 +4,20 @@ html,body {
     width:100%;
     height:100%;
 }
-.user {
+.user input[type = "submit"] {
     padding:20px 50px;
-    font-size:3rem;
-    font-weight:500;
+    font-size:1rem;
     color:white;
     background-color:#4e4e4e;
 }
-.user:hover {
+.user input[type="submit"]:hover {
     color:#4e4e4e;
     background-color:rgb(199, 201, 202);
 }
 
+p {
+    margin:0;
+}
 /* サイドバーのcss */
 body {
     min-height: 100vh;
