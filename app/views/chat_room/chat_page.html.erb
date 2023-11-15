@@ -16,9 +16,9 @@
         <div>
             <h1>チャット</h1>
             <div class="user_name">
-                <% @user_name.each do |usr| %>
+                <% @rooms.each do |room| %>
                     <div class="user">
-                        <%= button_to usr, {controller: 'chat_room',action: 'show'}, {method: :post} %>
+                        <%= link_to room.name , chat_room_path(room.id) %>
                     </div>
                     <br>
                 <% end %>

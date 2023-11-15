@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   get 'chat_room/chat_page'
-  post 'chat_room/chat_page' => 'chat_room#show'
+  get 'chat_room/chat_page/:room_id', to: 'chat_room#show', as: 'chat_room'
   get 'search/index'
   post 'search/index' => 'search#search'
   get 'setting/index'
