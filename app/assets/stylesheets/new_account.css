@@ -46,13 +46,17 @@ p{
     
 }
 .button{
-    background-color: #97d9e1;
-    border: none;
     position: absolute;
     top: 30px;
     left:30px;
     z-index:1;
 }
+
+.button input{
+    background-color: #97d9e1;
+    border: none;
+}
+
 .heart {
 	width: 120px;
 	height: 120px;
@@ -70,12 +74,12 @@ p{
 	
 }
 .heart::before {
-  left: 60%;
+  left: 55%;
   transform: rotate(-45deg);
   transform-origin: 0 100%;
 }
 .heart::after {
-  left: 10%;
+  left: 5%;
    transform: rotate(45deg);
    transform-origin: 100% 100%;
 }
