@@ -55,12 +55,15 @@ p {
 }
 
 .button{
-    background-color: #f161a5;
-    border-color:  #f161a5;
     position: absolute;
     top: 30px;
     left:25px;
     z-index:1;
+}
+
+.button input{
+    background-color: #f161a5;
+    border: none;
 }
 
 .heart {

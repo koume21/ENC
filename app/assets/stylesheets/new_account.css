@@ -46,6 +46,8 @@ p{
     
 }
 .button{
+    background-color: #97d9e1;
+    border: none;
     position: absolute;
     top: 30px;
     left:30px;
