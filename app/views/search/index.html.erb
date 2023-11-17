@@ -26,7 +26,7 @@
                     </td>
                     <td>
                       <div>
-                        <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => false}) %>
+                        <%= collection_select(:school, :id, @schools, :id, :name, {:include_blank => false}) %>
                       </div>
                     </td>
                     <td>
@@ -41,17 +41,25 @@
                     </td>
                     <td>
                       <div>
-                      　<%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
+                      　<%= collection_select(:club, :id, @clubs, :id, :name, {:include_blank => true}) %> 
                       </div>
                     </td>
                     <td>
                       <div>
-                      　<%= collection_select(:type, :name, @types, :id, :name, {:include_blank => true}) %> 
+                      　<%= collection_select(:type, :id, @types, :id, :name, {:include_blank => true}) %> 
                       </div>
                     </td>
                   </tr>
                 <% end %>
               </table>
+      
+      <% @profiles.each do |profile| %>  <%#検索の表示　%>
+        <%= profile.grade %>
+        <%= profile.school_id %>
+        <%= profile.club %>
+        <%= profile.type %>
+      <% end %>
+
       <%#　ここからランキング　%>
       <h3><b>ランキング</b></h3>
       <div class = "ranking">

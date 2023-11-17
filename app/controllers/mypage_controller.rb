@@ -12,8 +12,6 @@ class MypageController < ApplicationController
 
   def update
     login_id = session[:login_id]
-    profile = Profile.find_by(user_id: login_id)
-
     if profile.update(profile_params)
       redirect_to mypage_profile_path,notice:"Update successed"
     else
@@ -21,6 +19,9 @@ class MypageController < ApplicationController
     end
   end
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
   def login_session
     if session[:login_id] == nil
       flash[:notice] = 'ログインしていません'

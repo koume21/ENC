@@ -32,12 +32,12 @@ class ChatRoomController < ApplicationController
     redirect_to chat_room_chat_page_path
   end
   private
-  def login_session
-    if session[:login_id] == nil
-      flash[:notice] = 'ログインしていません'
-      redirect_to '/'
-    end
-  end
+  # def login_session
+  #   if session[:login_id] == nil
+  #     flash[:notice] = 'ログインしていません'
+  #     redirect_to '/'
+  #   end
+  # end
 end
 
 # クリックしたユーザーのＩＤを取得
