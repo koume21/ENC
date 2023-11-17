@@ -1,8 +1,10 @@
 
 <%#= render partial: 'message', collection: @messages %>
+
 <div class="message">
     <% if message.present? %>
-        <p><%= message.message %></p>
+        
+        <p><%= message.user_id %>:<%= message.message %></p>
     <% else %>
         <p>メッセージがありません</p>
     <% end %>
