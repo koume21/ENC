@@ -21,12 +21,11 @@ Rails.application.routes.draw do
   get 'login/login'
   post 'login/create'
   root to: 'login#login'
-  
   get 'new_account/new'
   post '/new_account/new' => 'new_account#create'
-  
   mount ActionCable.server => '/cable'
-
+  post 'do_good/:good_id' => 'do_good#create', as: 'good_do_good'
+  delete 'do_good/:good_id' => 'do_good#destroy', as: 'good_un_good'
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
