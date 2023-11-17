@@ -10,8 +10,6 @@ class ChatRoomController < ApplicationController
   def show
     @room_id = params[:room_id]
     session[:room_id] = @room_id
-    p @room_id
-    p "*************************************************************"
     @rooms = Room.joins(:room_members).where("room_members.user_id = ?", session[:login_id])
     @messages = Chat.where(room_id: @room_id)
   end

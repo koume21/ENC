@@ -20,7 +20,7 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
 });
 window.addEventListener("keydown", function(e) {
   if (e.key === 'Enter') {
-    appRoom.speak(e.target.value)
+    appRoom.speak(e.target.value);
     e.target.value='';
     e.preventDefault();
   }
