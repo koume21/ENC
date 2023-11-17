@@ -62,7 +62,13 @@
                 <td><%= user.profile.user_name %></td>
                 <td><%= user.login %></td>
                 <td>
-                  <%= button_to 'いいね', good_do_good_path(user.id), method: :post %>
+                <% if good.do_good_by?(current_user) %>
+                  <%= button_to 'いいね', (good_do_good_path(user.id), method: :post) do %>
+                  <% end %>
+                <% else %>
+                  <%= buttton_to 'いいね解除' , (good_do_good_path(user.id), method: :delete) do %>
+                  <% end %>
+                <% end %>
                 </td>
               </tr>
             <% end %>
