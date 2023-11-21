@@ -12,7 +12,8 @@ class MypageController < ApplicationController
 
   def update
     login_id = session[:login_id]
-    if profile.update(profile_params)
+    profile = Profile.find_by(user_id: login_id)
+    if profile.update(school_id: params[:school][:id],grade: params[:grade],club_id: params[:club][:id],type_id: params[:type][:name],)
       redirect_to mypage_profile_path,notice:"Update successed"
     else
       redirect_to mypage_profile_path,notice:"Update loss"
@@ -28,7 +29,7 @@ class MypageController < ApplicationController
       redirect_to '/'
     end
   end
-  def profile_params
-    params.require(:profile).permit(:user_name, :school_id, :profile_image, :grade, :club_id, :type_id, :comments)
-  end
+  # def profile_params
+  #   params.require(:profile).permit(:user_name, :school_id, :profile_image, :grade, :club_id, :type_id, :comments)
+  # end
 end

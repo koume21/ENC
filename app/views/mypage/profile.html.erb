@@ -37,7 +37,7 @@
                         </div>
                         <div>
                           <%= form.label "学校名" %> 
-                          <%= collection_select(:school, :name, @schools, :id, :name, {:include_blank => true}) %>
+                          <%= collection_select(:school, :id, @schools, :id, :name, {:include_blank => true}) %>
                         </div>
                         <div>
                            <%= form.label "プロフィール画像" %>
@@ -73,7 +73,9 @@
             <%= @user.profile.user_name %>
             <%= @user.profile.school_id %>
             <%= @user.profile.profile_image %>
-            <%= @user.profile.grade %>
+            <%= @user.profile.grade %>年
+            <%= @user.profile.club_id %> 部
+            <%= @user.profile.type_id %> 
             <%# ここからいいね一覧 %>
             <div class = "good_list">
                <h3>いいね一覧</h3>
