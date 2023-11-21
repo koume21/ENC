@@ -62,7 +62,7 @@
                 <td><%= user.profile.user_name %></td>
                 <td><%= user.login %></td>
                 <td>
-                <% if Good.do_good?(current_user) %>
+                <% if user.good.do_good?(current_user) %>
                   <%= button_to 'いいね', good_do_good_path(user.id), method: :post do %>
                   <% end %>
                 <% else %>
