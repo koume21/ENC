@@ -8,26 +8,36 @@ class MypageController < ApplicationController
     @user = User.find(login_id)
     @profile = @user.profile
     @goods = Good.where(user_id: login_id)
+    @grades = [{:id => 1, :name => "１年"},{:id => 2, :name => "2年"},{:id => 3, :name => "3年"}]
   end
 
   def update
     login_id = session[:login_id]
     profile = Profile.find_by(user_id: login_id)
+    school_id = params[:profile][:school_id]
+    user_name = params[:profile][:user_name]
+    grade = params[:profile][:grade]
+    club_id = params[:profile][:club_id]
+    type_id = params[:profile][:type_id]
+    comments = params[:profile][:comments]
 
-    if profile.update(profile_params)
+    if profile.update(user_name: user_name,school_id: school_id,grade: grade,club_id: club_id,type_id: type_id,comments: comments)
       redirect_to mypage_profile_path,notice:"Update successed"
     else
       redirect_to mypage_profile_path,notice:"Update loss"
     end
   end
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
   def login_session
     if session[:login_id] == nil
       flash[:notice] = 'ログインしていません'
       redirect_to '/'
     end
   end
-  def profile_params
-    params.require(:profile).permit(:user_name, :school_id, :profile_image, :grade, :club_id, :type_id, :comments)
-  end
+  # def profile_params
+  #   params.require(:profile).permit(:user_name, :school_id, :profile_image, :grade, :club_id, :type_id, :comments)
+  # end
 end
