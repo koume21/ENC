@@ -20,13 +20,15 @@ class SearchController < ApplicationController
     p params[:club][:id] #Profileのclub_id
     p params[:type][:id] #Profileのtype_id
 
+    arr_str = []
+    arr_str.
+
+
     @profiles = Profile.where(school_id: params[:school][:id]) 
     @profiles = Profile.where(grade: params[:grade]) 
     @profiles = Profile.where(club_id: params[:club][:id])
     @profiles = Profile.where(type_id: params[:type][:id])
 
-
-    
 
     # @search = School.where(id: @school)
     render :index

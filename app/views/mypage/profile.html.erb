@@ -37,7 +37,7 @@
                         </div>
                         <div>
                           <%= form.label "学校名" %> 
-                          <%= collection_select(:school, :id, @schools, :id, :name, {:include_blank => true}) %>
+                          <%= collection_select(:profile, :school_id, @schools, :id, :name, {:include_blank => true}) %>
                         </div>
                         <div>
                            <%= form.label "プロフィール画像" %>
@@ -45,7 +45,7 @@
                         </div>
                         <div>
                            <%= form.label "学年" %>
-                           <select name="grade">
+                           <select name="profile[grade]">
                              <option value="1" label="1年"></option>
                              <option value="2" label="2年"></option>
                              <option value="3" label="3年"></option>
@@ -53,11 +53,11 @@
                         </div>
                         <div>
                            <%= form.label "部活動" %>
-                           <%= collection_select(:club, :name, @clubs, :id, :name, {:include_blank => true}) %> 
+                           <%= collection_select(:profile, :club_id, @clubs, :id, :name, {:include_blank => true}) %> 
                         </div>
                         <div>
                           <%= form.label "性別" %>
-                          <%= collection_select(:type, :name, @types, :id, :name, {:include_blank => false}) %>
+                          <%= collection_select(:profile, :type_id, @types, :id, :name, {:include_blank => false}) %>
                         </div>
                         <div>
                           <%= form.label "一言" %>
@@ -76,6 +76,7 @@
             <%= @user.profile.grade %>年
             <%= @user.profile.club_id %> 部
             <%= @user.profile.type_id %> 
+            <%= @user.profile.comments %> 
             <%# ここからいいね一覧 %>
             <div class = "good_list">
                <h3>いいね一覧</h3>

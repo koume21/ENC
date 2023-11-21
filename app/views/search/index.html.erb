@@ -54,10 +54,10 @@
               </table>
       
       <% @profiles.each do |profile| %>  <%#検索の表示　%>
-        <%= profile.grade %>
         <%= profile.school_id %>
-        <%= profile.club %>
-        <%= profile.type %>
+        <%= profile.grade %>
+        <%= profile.club_id %>
+        <%= profile.type_id %>
       <% end %>
 
       <%#　ここからランキング　%>
