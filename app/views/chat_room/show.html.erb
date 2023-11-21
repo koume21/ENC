@@ -29,9 +29,10 @@
                 <%= render partial: 'message', collection: @messages %>
             </div>
             <form>
-                <label>メッセージ</label>
                 <input type="text" data-behavior="room_speaker">
                 <input type="submit" value="送信">
+                <input id="room_id" type="hidden" value= "<%= @room_id %>">
+                <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
             </form>
         </div>
 

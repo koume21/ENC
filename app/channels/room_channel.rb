@@ -11,3 +11,4 @@ class RoomChannel < ApplicationCable::Channel
     Chat.create!(room_id: data['room_id'].to_i,user_id: data['current_user_id'].to_i,message: data['message'])
   end
 end
+# data['room_id'].to_i,data['current_user_id'].to_i
