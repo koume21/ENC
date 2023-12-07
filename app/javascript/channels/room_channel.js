@@ -12,19 +12,19 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
   received(data) {
     const message = document.getElementById('message');
     message.insertAdjacentHTML('beforeend', data['message'])
-    current_user_id = $("#current_user_id").val();
-    room_id = $("#room_id").val();
+    let current_user_id = $("#current_user_id").val();
+    let room_id = $("#room_id").val();
     console.log(current_user_id);
     console.log(room_id);
   },
 
   speak: function(message) {
-    current_user_id = $("#current_user_id").val();
-    room_id = $("#room_id").val();
+    let current_user_id = $("#current_user_id").val();
+    let room_id = $("#room_id").val();
     return this.perform('speak',{
       message: message,
       current_user_id: current_user_id,
-      room_id: room_id,
+      room_id, room_id,
     });
   }
 });

@@ -3,6 +3,7 @@ class ChatRoomController < ApplicationController
   def chat_page
     @messages = nil
     session[:room_id] = nil
+    @room_id = nil
     # ユーザーがルームに参加している場合
     @rooms = Room.joins(:room_members).where("room_members.user_id = ?", session[:login_id])
   end
