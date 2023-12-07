@@ -22,8 +22,6 @@ class SearchController < ApplicationController
     p params[:type][:id] #Profileのtype_id
 
     arr_str = []
-    arr_str.
-
 
     @profiles = Profile.where(school_id: params[:school][:id]) 
     @profiles = Profile.where(grade: params[:grade]) 
