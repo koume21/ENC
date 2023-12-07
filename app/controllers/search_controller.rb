@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  # before_action :login_session
+  before_action :login_session
 
   def index
     @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(3).pluck(:good_id))
@@ -7,6 +7,7 @@ class SearchController < ApplicationController
     @clubs = Club.all
     @types = Type.all
     @profiles = []
+    @my_good = Good.where(user_id:session[:login_id])
   end
   
   def search
