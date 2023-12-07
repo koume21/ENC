@@ -30,4 +30,16 @@ main {
 }
 .sidebar_size {
     min-height:100%;
+    width:auto;
+}
+.person {
+    width:auto;
+    display:flex;
+}
+.chat_room {
+    width: 500px;
+}
+.mycomment {
+    width:fit-content;
+    margin-left: auto;
 }
