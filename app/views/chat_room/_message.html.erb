@@ -3,8 +3,17 @@
 
 <div class="message">
     <% if message.present? %>
-        
-        <p><%= message.user_id %>:<%= message.message %></p>
+        <% if message.user_id == session[:login_id] %>
+            <div class='mycomment'>
+              <p><%= message.user_id %>:<%= message.message %></p>
+            </div>
+        <% else %>
+            <div class='partner'>
+                <% p message.user_id %>
+                <% p session[:login_id] %>
+                <p><%= message.user_id %>:<%= message.message %></p>
+            </div>
+        <% end %>
     <% else %>
         <p>メッセージがありません</p>
     <% end %>

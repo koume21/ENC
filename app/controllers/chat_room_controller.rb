@@ -3,6 +3,7 @@ class ChatRoomController < ApplicationController
   def chat_page
     @messages = nil
     session[:room_id] = nil
+    @room_id = nil
     # ユーザーがルームに参加している場合
     @rooms = Room.joins(:room_members).where("room_members.user_id = ?", session[:login_id])
   end
@@ -16,12 +17,12 @@ class ChatRoomController < ApplicationController
 
 
   private
-  # def login_session
-  #   if session[:login_id] == nil
-  #     flash[:notice] = 'ログインしていません'
-  #     redirect_to '/'
-  #   end
-  # end
+  def login_session
+    if session[:login_id] == nil
+      flash[:notice] = 'ログインしていません'
+      redirect_to '/'
+    end
+  end
 end
 
 # クリックしたユーザーのＩＤを取得
