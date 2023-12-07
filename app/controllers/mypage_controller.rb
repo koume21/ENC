@@ -11,11 +11,6 @@ class MypageController < ApplicationController
     @grades = [{:id => 1, :name => "１年"},{:id => 2, :name => "2年"},{:id => 3, :name => "3年"}]
   end
   def create
-    @post = Post.new
-    @post.profile_image_name = "#{@post.id}.jpg"
-    image = params[:image]
-    File.binwrite("public/post_images/#{post.profile_image_name}",image.read)
-    @post.save  
   end
   def update
     login_id = session[:login_id]
@@ -26,6 +21,16 @@ class MypageController < ApplicationController
     club_id = params[:profile][:club_id]
     type_id = params[:profile][:type_id]
     comments = params[:profile][:comments]
+
+    image = params[:profile][:profile_image]
+    if image.present?
+      profile.profile_image = image.original_filename
+      save_path = Rails.root.join("public/post_images/",profile.profile_image)
+      File.open(save_path,"w+b") do |f|
+         f.write image.read  
+      end
+    end
+    # image.read
 
     if profile.update(user_name: user_name,school_id: school_id,grade: grade,club_id: club_id,type_id: type_id,comments: comments)
       redirect_to mypage_profile_path,notice:"Update successed"
