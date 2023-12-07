@@ -10,7 +10,13 @@ class MypageController < ApplicationController
     @goods = Good.where(user_id: login_id)
     @grades = [{:id => 1, :name => "１年"},{:id => 2, :name => "2年"},{:id => 3, :name => "3年"}]
   end
-
+  def create
+    @post = Post.new
+    @post.profile_image_name = "#{@post.id}.jpg"
+    image = params[:image]
+    File.binwrite("public/post_images/#{post.profile_image_name}",image.read)
+    @post.save  
+  end
   def update
     login_id = session[:login_id]
     profile = Profile.find_by(user_id: login_id)

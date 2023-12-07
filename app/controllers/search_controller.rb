@@ -8,7 +8,6 @@ class SearchController < ApplicationController
     @types = Type.all
     @profiles = []
   end
-  
   def search
     @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(3).pluck(:good_id))
     @schools = School.all
@@ -20,14 +19,11 @@ class SearchController < ApplicationController
     p params[:club][:id] #Profileのclub_id
     p params[:type][:id] #Profileのtype_id
 
-    arr_str = []
-    arr_str.
+    # arr_str = []
+    # arr_str.
 
 
-    @profiles = Profile.where(school_id: params[:school][:id]) 
-    @profiles = Profile.where(grade: params[:grade]) 
-    @profiles = Profile.where(club_id: params[:club][:id])
-    @profiles = Profile.where(type_id: params[:type][:id])
+    @profiles = Profile.where(school_id: params[:school][:id])
 
 
     # @search = School.where(id: @school)
