@@ -10,34 +10,49 @@
 <body>
     <main>
         <div class="column">
-        <div class="sidebar_size">
-            <%= render partial: 'sidebar' %>
-        </div>
-        <div>
-            <h1>チャット</h1>
-            <div class="user_name">
-                <% @rooms.each do |room| %>
-                    <div class="user">
-                        <%= link_to room.name , chat_room_path(room.id) %>
+            <div class="sidebar_size">
+                <%= render partial: 'sidebar' %>
+            </div>
+            <div class="person">
+                <div>
+                    <h1>チャット</h1>
+                    <div class="user_name">
+                        <% @rooms.each do |room| %>
+                            <div class="user">
+                                <%= link_to room.name , chat_room_path(room.id) %>
+                            </div>
+                            <br>
+                        <% end %>
                     </div>
-                    <br>
-                <% end %>
-            </div>
-        </div>
-        <div>
-            <div class="chat" id="message">
-                <%= render partial: 'message', collection: @messages %>
-            </div>
-            <form>
-                <input type="text" data-behavior="room_speaker">
-                <input type="submit" value="送信">
-                <input id="room_id" type="hidden" value= "<%= @room_id %>">
-                <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
-            </form>
-        </div>
+                </div>
+                <div class="chat_room">
+                    <div class="chat" id="message">
+                        <%= render partial: 'message', collection: @messages %>
+                    </div>
+                    <form>
+                        <input type="text" data-behavior="room_speaker">
+                        <input type="submit" value="送信">
+                        <input id="room_id" type="hidden" value= "<%= @room_id %>">
+                        <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
+                    </form>
+                </div>
+            <div>
 
         
-    </div>
+        </div>
     </main>
 </body>
+<script type="text/javascript">
+    function addMessageClass() {
+        let current_user_id = $("#current_user_id").val();
+        $(".foo").each(function(index, element) {
+            if ($(element).data('message-owner') == current_user_id) {
+                $(element).addClass("mycomment");
+            } else {
+                $(element).addClass("pertner")
+            }
+        });
+    }
+    $(addMessageClass());
+</script>
 </html>
