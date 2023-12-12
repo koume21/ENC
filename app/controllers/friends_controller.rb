@@ -1,6 +1,5 @@
 class FriendsController < ApplicationController
   before_action :set_friend, only: %i[ show edit update destroy ]
-　
   # GET /friends or /friends.json
   def index
     @friends = Friend.all

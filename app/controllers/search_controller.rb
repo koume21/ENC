@@ -32,6 +32,14 @@ class SearchController < ApplicationController
     # @search = School.where(id: @school)
     render :index
   end
+
+  def friend_create
+    @new_friend = Friend.new(user_id: session[:login_id],friend_id: params[:friend_id])
+    @new_friend.save
+    @pertner_friend = Friend.new(user_id: params[:friend_id],friend_id: session[:login_id])
+    @pertner_friend.save
+    redirect_to '/search/index'
+  end
   private
   def login_session
     if session[:login_id] == nil

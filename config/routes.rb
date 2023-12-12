@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   post 'do_good/:good_id' => 'do_good#create', as: 'good_do_good'
   delete 'do_good/:good_id' => 'do_good#destroy', as: 'good_un_good'
+  post 'search/index/:friend_id', to: 'search#friend_create', as: 'create_friend'
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
