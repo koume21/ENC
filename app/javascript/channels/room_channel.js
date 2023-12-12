@@ -12,6 +12,7 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
   received(data) {
     const message = document.getElementById('message');
     message.insertAdjacentHTML('beforeend', data["message"]);
+    addMessageClass();
   },
 
   speak: function(message) {

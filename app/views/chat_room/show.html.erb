@@ -42,4 +42,17 @@
         </div>
     </main>
 </body>
+<script type="text/javascript">
+    function addMessageClass() {
+        let current_user_id = $("#current_user_id").val();
+        $(".foo").each(function(index, element) {
+            if ($(element).data('message-owner') == current_user_id) {
+                $(element).addClass("mycomment");
+            } else {
+                $(element).addClass("pertner")
+            }
+        });
+    }
+    $(addMessageClass());
+</script>
 </html>
