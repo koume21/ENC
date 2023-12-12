@@ -9,27 +9,19 @@ class SearchController < ApplicationController
     @profiles = []
     @my_good = Good.where(user_id:session[:login_id])
   end
-  
   def search
     @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(3).pluck(:good_id))
     @schools = School.all
     @clubs = Club.all
     @types = Type.all
     
-    p params[:school][:id] #Profileのschool_id
-    p params[:grade] #Profileのgrade
-    p params[:club][:id] #Profileのclub_id
-    p params[:type][:id] #Profileのtype_id
+    arr_str = {}
+    arr_str[:school_id] = params[:school][:id] if params[:school][:id].present?
+    arr_str[:grade] = params[:grade] if params[:grade].present?
+    arr_str[:club_id] = params[:club][:id] if params[:club][:id].present?
+    arr_str[:type_id] = params[:type][:id] if params[:type][:id].present?
+    @profiles = Profile.where(arr_str)
 
-    arr_str = []
-
-    @profiles = Profile.where(school_id: params[:school][:id]) 
-    @profiles = Profile.where(grade: params[:grade]) 
-    @profiles = Profile.where(club_id: params[:club][:id])
-    @profiles = Profile.where(type_id: params[:type][:id])
-
-
-    # @search = School.where(id: @school)
     render :index
   end
 

@@ -30,7 +30,7 @@
                      <span class="modalClose">×</span>
                   </div>
                   <div class="modal-contents">
-                     <%= form_with url: "/mypage/update",model: @profile do |form| %>
+                     <%= form_with url: "/mypage/update",model: @profile, html: {multipart: true} do |form| %>
                         <div>
                            <%= form.label "ユーザーネーム" %>
                            <%= form.text_field :user_name %>
@@ -41,7 +41,7 @@
                         </div>
                         <div>
                            <%= form.label "プロフィール画像" %>
-                           <%= form.text_field :profile_image %>
+                           <%= form.file_field :profile_image %>
                         </div>
                         <div>
                            <%= form.label "学年" %>

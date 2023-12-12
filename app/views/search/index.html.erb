@@ -11,19 +11,15 @@
             <h1>検索</h1>
               <table>
                 <tr>
-                  <th></th>
                   <th>学校名</th>
                   <th>学年</th>
                   <th>部活動</th>
                   <th>性別</th>
+                  <th></th>
                 </tr>
                 <%= form_tag({controller:"search",action:"search"}, method: :post) do%>
                   <tr>
-                    <td>
-                      <div class = "button">
-                          <%= submit_tag "検索" %>
-                      </div> 
-                    </td>
+                   
                     <td>
                       <div>
                         <%= collection_select(:school, :id, @schools, :id, :name, {:include_blank => false}) %>
@@ -32,7 +28,7 @@
                     <td>
                       <div>
                         <select name="grade">
-                          <option value="0" label="選択してください"></option>
+                          <option value="" label="選択してください"></option>
                           <option value="1" label="1年"></option>
                           <option value="2" label="2年"></option>
                           <option value="3" label="3年"></option>
@@ -49,16 +45,22 @@
                       　<%= collection_select(:type, :id, @types, :id, :name, {:include_blank => true}) %> 
                       </div>
                     </td>
+                     <td>
+                          <%= submit_tag "検索" %>
+                    </td>
                   </tr>
                 <% end %>
               </table>
-      
+      <table class="table">
       <% @profiles.each do |profile| %>  <%#検索の表示　%>
-        <%= profile.school_id %>
-        <%= profile.grade %>
-        <%= profile.club_id %>
-        <%= profile.type_id %>
+        <tr>
+          <td><%= profile.school.name %></td>
+          <td><%= profile.grade %></td>
+          <td><%= profile.club.name if profile.club.present? %></td>
+          <td><%= profile.type.name if profile.type.present? %></td>
+        </tr>
       <% end %>
+      </table>
 
       <%#　ここからランキング　%>
       <h3><b>ランキング</b></h3>

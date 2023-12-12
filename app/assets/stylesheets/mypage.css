@@ -8,7 +8,7 @@ html, body {
 .my_profile {
     border-bottom:1px solid black;
 }
-
+.modal-header
 /* サイドバーのcss */
 body {
     min-height: 100vh;
