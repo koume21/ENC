@@ -27,7 +27,7 @@ class MypageController < ApplicationController
       profile.profile_image = image.original_filename
       save_path = Rails.root.join("public/post_images/",profile.profile_image)
       File.open(save_path,"w+b") do |f|
-         f.write image.read  
+         f.write(image.read)
       end
     end
     # image.read
