@@ -14,14 +14,17 @@ class SearchController < ApplicationController
     @schools = School.all
     @clubs = Club.all
     @types = Type.all
-    
+    @my_good = Good.where(user_id:session[:login_id])
+    @school_id = params[:school][:id]
+    @grade = params[:grade]
+    @club_id = params[:club][:id]
+    @type_id = params[:type][:id]
     arr_str = {}
-    arr_str[:school_id] = params[:school][:id] if params[:school][:id].present?
-    arr_str[:grade] = params[:grade] if params[:grade].present?
-    arr_str[:club_id] = params[:club][:id] if params[:club][:id].present?
-    arr_str[:type_id] = params[:type][:id] if params[:type][:id].present?
+    arr_str[:school_id] = @school_id if @school_id.present?
+    arr_str[:grade] = @grade if @grade.present?
+    arr_str[:club_id] = @club_id if @club_id.present?
+    arr_str[:type_id] = @type_id if @type_id.present?
     @profiles = Profile.where(arr_str)
-
     render :index
   end
 
