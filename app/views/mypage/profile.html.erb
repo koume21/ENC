@@ -42,6 +42,7 @@
                         <div>
                            <%= form.label "プロフィール画像" %>
                            <%= form.file_field :profile_image %>
+                           <%= image_tag "/post_images/"+@profile.profile_image %>
                         </div>
                         <div>
                            <%= form.label "学年" %>
