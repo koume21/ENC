@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="">
 </head>
 <body>
-    
+
+    <div class="list">
+        <% @friend_list.each do |friend| %>
+            <%= friend.friend_user.profile.user_name %>
+            <% if friend.friend_user.profile.user_name.present? %>
+                <%= image_tag "/post_images/"+ friend.friend_user.profile.user_name,class:'friend_icon' %>
+            <% else %>
+                <%= imgae_tag "/post_images/shoki.png",class:'friend_icon' %>
+            <% end %>
+        <% end %>
 </body>
 </html>
