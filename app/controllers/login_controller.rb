@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
+  layout 'notsidebar'
   def login
     session[:login_id] = nil
   end

@@ -1,4 +1,5 @@
 class NewAccountController < ApplicationController
+  layout 'notsidebar'
   def new
   end
 
