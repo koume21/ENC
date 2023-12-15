@@ -59,3 +59,13 @@ main {
     padding:40px;
     border-radius:20px;
 }
+
+.icon{
+    width:200px ;
+    height:200px ;
+}
+
+.good_icon{
+    width:100px ;
+    height:100px ;
+}
