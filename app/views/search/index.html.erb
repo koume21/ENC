@@ -11,6 +11,7 @@
             <h1>検索</h1>
               <table>
                 <tr>
+                  <th>ユーザー検索</th>
                   <th>学校名</th>
                   <th>学年</th>
                   <th>部活動</th>
@@ -19,7 +20,11 @@
                 </tr>
                 <%= form_tag({controller:"search",action:"search"}, method: :post) do%>
                   <tr>
-                   
+                   <td>
+                     <div>
+                        <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
+                     </div>
+                   </td>
                     <td>
                       <div>
                         <%= collection_select(:school, :id, @schools, :id, :name, {selected: @school_id,:include_blank =>true}) %>
@@ -49,9 +54,10 @@
       <table class="table">
       <% @profiles.each do |profile| %>  <%#検索の表示　%>
         <tr>
-          <td><%= image_tag "/post_images/"+profile.profile_image if profile.profile_image.present? %></td>
+          <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
           <td><%= profile.school.name if profile.school.present? %></td>
           <td><%= Profile::GRADES[profile.grade] %></td>
+          <td><%= profile.user.login %>
           <td><%= profile.user_name %></td>
           <td><%= profile.club.name if profile.club.present? %></td>
           <td><%= profile.type.name if profile.type.present? %></td>
@@ -76,7 +82,7 @@
             <% @good_ranks.each.with_index(1) do |user, i| %>
               <tr>
                 <td><%= i %>位</td>
-                <td><%= image_tag "/post_images/"+user.profile.profile_image if user.profile.profile_image.present? %></td>
+                <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
                 <td><%= user.profile.user_name %></td>
                 <td><%= user.login %></td>
                 <td>
