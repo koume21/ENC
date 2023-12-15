@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  get 'friend_list/index'
   get 'chat_room/chat_page'
   get 'chat_room/chat_page/:room_id', to: 'chat_room#show', as: 'chat_room'
   get 'search/index'
