@@ -85,9 +85,9 @@
                 </td>
                 <td>
                 <% if @my_good.do_good?(user.id) %>
-                  <button class='bi bi-heart iine', good_un_good_path(user.id), method: :delete >
+                  <%= button_to good_un_good_path(user.id), class:"bnt bnt-small bnt-sucess" %>
                  <% else %>
-                  <button class='bi bi-heart-fill iine', good_do_good_path(user.id), method: :post >
+                  <%= button_to good_do_good_path(user.id), method: :post, class: 'bi bi-heart-fill' %>
                 <% end %>
                 </td>
               </tr>
