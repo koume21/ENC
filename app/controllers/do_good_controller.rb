@@ -4,7 +4,6 @@ class DoGoodController < ApplicationController
         @good_do_good = Good.new(good_id: params[:good_id], user_id: session[:login_id])
         @good_do_good.save
         return
-
     end
 
     def destroy
