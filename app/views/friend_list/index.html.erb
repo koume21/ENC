@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="">
+    <%= stylesheet_link_tag 'friend_list', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-    
+    <h1>フレンド一覧</h1>
+    <div>
+        <% @friend_list.each do |friend| %>
+            <div class="list">
+                <% if friend.friend_user.profile.profile_image.present? %>
+                    <%= image_tag "/post_images/"+ friend.friend_user.profile.user_name,class:'friend_icon' %>
+                <% else %>
+                    <%= image_tag "/post_images/shoki.png",class:'friend_icon' %>
+                <% end %>
+                <p><%= friend.friend_user.profile.user_name %></p>
+                <%= button_to 'チャット', '/chat_room/chat_page', method: :get %>
+
+                <% if @my_good.do_good?(friend.friend_id) %>
+                <%= button_to '♥', good_un_good_path(friend.friend_id), method: :delete %>
+                <% else %>
+                <%= button_to '♡', good_do_good_path(friend.friend_id), method: :post %>
+                <% end %>
+                <%= button_to 'ブロック' %>
+            </div>
+        <% end %>
+    </div>
 </body>
 </html>

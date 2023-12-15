@@ -16,13 +16,14 @@
          </div>
          <div class="main">
             <div class="my_profile">
-               <br>
-               <%= @user.login %>
-               <br>
-               <%= @user.profile.user_name %>
-               <br>
-               <%= @user.profile.comments %>
-               <br>
+            <table>
+               <tr>
+                  <th><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></th>
+                     <td><li><%= @user.login %></li></td>
+                     <td><li><%= @user.profile.user_name %></li></td>
+                     <td><li><%= @user.profile.comments %></li></td>
+               </tr>
+               </table>
                <p class="btn btn-primary" id="modal-open">プロフィール編集</p>
                <div class="modal-window" id="Modal">
                   <div class="modal-header">
@@ -42,7 +43,7 @@
                         <div>
                            <%= form.label "プロフィール画像" %>
                            <%= form.file_field :profile_image %>
-                           <%= image_tag "/post_images/"+@profile.profile_image %>
+                           <%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %>
                         </div>
                         <div>
                            <%= form.label "学年" %>
@@ -82,7 +83,13 @@
             <div class = "good_list">
                <h3>いいね一覧</h3>
                   <% @goods.each do |g| %>
-                     <%= g.good_user.profile.profile_image%>
+                     <%= g.good_user.profile.profile_image %>
+                     <% if g.good_user.profile.profile_image.present? %>
+                        <%= image_tag "/post_images/"+g.good_user.profile.profile_image, class: 'icon' %>
+                     <% else %>
+                        <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
+                     <% end %>
+                     <%= g.good_user.profile.profile_image %>
                      <%= g.good_user.profile.user_name %>
                   <% end %>
             </div>
