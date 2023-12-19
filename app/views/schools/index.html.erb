@@ -13,6 +13,7 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr>
+        <td><%= school.id %></td>
         <td><%= school.name %></td>
         <td><%= link_to 'Show', school %></td>
         <td><%= link_to 'Edit', edit_school_path(school) %></td>

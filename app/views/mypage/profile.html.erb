@@ -18,10 +18,15 @@
             <div class="my_profile">
             <table>
                <tr>
-                  <th><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></th>
-                     <td><li><%= @user.login %></li></td>
-                     <td><li><%= @user.profile.user_name %></li></td>
-                     <td><li><%= @user.profile.comments %></li></td>
+                  <% if @profile.profile_image.present? %>
+                     <td><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></td>
+                  <% else %>
+                     <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
+                  <% end %>
+                  <th><%#= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></th>
+                  <td><li><%= @user.login %></li></td>
+                  <td><li><%= @user.profile.user_name %></li></td>
+                  <td><li><%= @user.profile.comments %></li></td>
                </tr>
                </table>
                <p class="btn btn-primary" id="modal-open">プロフィール編集</p>
