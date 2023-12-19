@@ -14,10 +14,11 @@
 
   <body>
     <div class="column">
+    
+      <div class="sidebar_size">
+        <%= render partial: 'layouts/sidebar' %>
+      </div>
       <div>
-        <div class="sidebar_size">
-          <%= render partial: 'layouts/sidebar' %>
-        </div>
         <%= yield %>
       </div>
     </div>

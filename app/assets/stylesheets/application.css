@@ -32,6 +32,7 @@ main {
     overflow-x: auto;
     overflow-y: hidden;
 }
+ */
 .column {
     display:flex;
     min-height:100vh;
@@ -39,4 +40,4 @@ main {
 .sidebar_size {
     min-height:100%;
 }
- */
+
