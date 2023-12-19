@@ -24,7 +24,7 @@
                 <% else %>
                 <%= button_to '♡', good_do_good_path(friend.friend_id), method: :post %>
                 <% end %>
-                <%= button_to 'ブロック' %>
+                <%= button_to 'ブロック', block_create_path(friend.friend_id), method: :post %>
             </div>
         <% end %>
     </div>
