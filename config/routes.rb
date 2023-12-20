@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'do_good/:good_id' => 'do_good#create', as: 'good_do_good'
   delete 'do_good/:good_id' => 'do_good#destroy', as: 'good_un_good'
   post 'search/index/:friend_id', to: 'search#friend_create', as: 'create_friend'
+  get 'search/ranking', as: 'ranking'
   resources :chats
   resources :room_members
   resources :rooms

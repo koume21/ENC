@@ -1,7 +1,8 @@
 class Profile < ApplicationRecord
     belongs_to :user
-    has_many :schools
-    has_many :clubs
-    has_many :types
+    belongs_to :school
+    belongs_to :club
+    belongs_to :type
+    
     GRADES = {1=>"1年",2=>"2年",3=>"3年"}
 end

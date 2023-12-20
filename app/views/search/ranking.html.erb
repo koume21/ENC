@@ -1,0 +1,16 @@
+<table>
+    <% @good_ranks.each.with_index(1) do |user, i| %>
+        <tr>
+            <td><%= i %>位</td>
+            <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
+            <td><%= user.profile.user_name %></td>
+            <td><%= user.login %></td>
+            <td>
+                <%= button_to '+', create_friend_path(user.id), method: :post %>
+            </td>
+            <td>
+                <%= render partial: "do_good/good_btn", locals: { user_id: user.profile.id } %>
+            </td>
+        </tr>
+    <% end %>
+</table>

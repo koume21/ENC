@@ -4,9 +4,6 @@
   </head>
    <body>
     <div class="column">
-         <div class="sidebar_size">
-            <%= render partial: 'sidebar' %>
-         </div>
          <div class="main">
             <div class="my">
             <h1>検索</h1>
@@ -66,39 +63,32 @@
             <%= button_to '+', create_friend_path(profile.user_id), method: :post %>
           </td>
           <td>
-            <% if @my_good.do_good?(profile.user_id) %>
-              <%= button_to '♥', good_un_good_path(profile.user_id), method: :delete %>
-            <% else %>
-              <%= button_to '♡', good_do_good_path(profile.user_id), method: :post %>
-            <% end %>
-            </td>
+            <div id='good-btn-<%= profile.id %>'>
+              <%= render partial: "do_good/good_btn", locals: { user_id: profile.id } %>
+            </div>
+          </td>
         </tr>
       <% end %>
       </table>
 
       <%#　ここからランキング　%>
       <h3><b>ランキング</b></h3>
-      <div class = "ranking">
-        <table>
-            <% @good_ranks.each.with_index(1) do |user, i| %>
-              <tr>
-                <td><%= i %>位</td>
-                <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
-                <td><%= user.profile.user_name %></td>
-                <td><%= user.login %></td>
-                <td>
-                  <%= button_to '+', create_friend_path(user.id), method: :post %>
-                </td>
-                <td>
-                <% if @my_good.do_good?(user.id) %>
-                  <%= button_to good_un_good_path(user.id), class:"bnt bnt-small bnt-sucess" %>
-                 <% else %>
-                  <%= button_to good_do_good_path(user.id), method: :post, class: 'bi bi-heart-fill' %>
-                <% end %>
-                </td>
-              </tr>
-            <% end %>
-        </table>
+      <div id="ranking" class = "ranking">
+        
       </div>
+
+<% content_for :inline_js do %>
+<script type="text/javascript">
+<!--
+  function get_ranking() {
+    $.get("<%= ranking_path %>").done(function(data) {
+      $("#ranking").html(data);
+    });
+  }
+  $(get_ranking());
+// -->
+</script>
+<% end %>
+
     </body>
   <html>
