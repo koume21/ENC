@@ -63,8 +63,8 @@
             <%= button_to '+', create_friend_path(profile.user_id), method: :post %>
           </td>
           <td>
-            <div id='good-btn-<%= profile.id %>'>
-              <%= render partial: "do_good/good_btn", locals: { user_id: profile.id } %>
+            <div id='good-btn-<%= profile.user.id %>'>
+              <%= render partial: "do_good/good_btn", locals: { user_id: profile.user.id } %>
             </div>
           </td>
         </tr>
@@ -74,7 +74,6 @@
       <%#　ここからランキング　%>
       <h3><b>ランキング</b></h3>
       <div id="ranking" class = "ranking">
-        
       </div>
 
 <% content_for :inline_js do %>

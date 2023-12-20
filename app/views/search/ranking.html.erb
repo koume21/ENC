@@ -9,7 +9,7 @@
                 <%= button_to '+', create_friend_path(user.id), method: :post %>
             </td>
             <td>
-                <%= render partial: "do_good/good_btn", locals: { user_id: user.profile.id } %>
+                <%= render partial: "do_good/good_btn", locals: { user_id: user.id } %>
             </td>
         </tr>
     <% end %>
