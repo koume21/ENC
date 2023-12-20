@@ -4,6 +4,6 @@
     <% end %>
 <% else %>
     <%= button_to good_do_good_path(user_id), method: :post,   remote: true do %>
-        <i class="bi bi-heart-fill"></i>
+        <p class="text-danger"><i class="bi bi-heart-fill"></i></p>
     <% end %>
 <% end %>
