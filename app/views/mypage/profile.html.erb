@@ -19,7 +19,7 @@
                   <% if @profile.profile_image.present? %>
                      <td><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></td>
                   <% else %>
-                     <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
+                     <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
                   <% end %>
                   <td><li><%= @user.login %></li></td>
                   <td><li><%= @user.profile.user_name %></li></td>
