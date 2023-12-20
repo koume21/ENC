@@ -2,15 +2,13 @@ class SearchController < ApplicationController
   before_action :login_session
 
   def index
-    @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(3).pluck(:good_id))
     @schools = School.all
     @clubs = Club.all
     @types = Type.all
     @profiles = []
-    @my_good = Good.where(user_id:session[:login_id])
   end
+  
   def search
-    @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(3).pluck(:good_id))
     @schools = School.all
     @clubs = Club.all
     @types = Type.all
@@ -32,6 +30,12 @@ class SearchController < ApplicationController
     @profiles = @profiles.joins(:user).where("(users.login LIKE ? OR profiles.user_name LIKE ?)", "%#{@login_or_user_name}%", "%#{@login_or_user_name}%") if @login_or_user_name.present?
     
     render :index
+  end
+
+  def ranking
+    @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(3).pluck(:good_id))
+    @my_good = Good.where(user_id:session[:login_id])
+    render layout: false
   end
 
   def friend_create
