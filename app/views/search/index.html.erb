@@ -51,7 +51,7 @@
               </table>
       <table class="table">
       <% @profiles.each do |profile| %>  <%#検索の表示　%>
-        <tr>
+        <tr valign="middle">
           <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
           <td><%= profile.school.name if profile.school.present? %></td>
           <td><%= Profile::GRADES[profile.grade] %></td>
