@@ -6,7 +6,9 @@
             <td><%= user.profile.user_name %></td>
             <td><%= user.login %></td>
             <td>
-                <%= button_to '+', create_friend_path(user.id), method: :post %>
+                <%= button_to create_friend_path(user.id), method: :post do %>
+                    <i class="bi bi-person-plus-fill"></i>
+                <% end %>
             </td>
             <td>
                 <%= render partial: "do_good/good_btn", locals: { user_id: user.id } %>

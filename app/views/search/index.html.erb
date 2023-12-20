@@ -60,7 +60,9 @@
           <td><%= profile.club.name if profile.club.present? %></td>
           <td><%= profile.type.name if profile.type.present? %></td>
           <td>
-            <%= button_to '+', create_friend_path(profile.user_id), method: :post %>
+            <%= button_to create_friend_path(profile.user_id), method: :post do %>
+              <i class="bi bi-person-plus-fill"></i>
+            <% end %>
           </td>
           <td>
             <div id='good-btn-<%= profile.user.id %>'>
