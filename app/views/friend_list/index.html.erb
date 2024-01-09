@@ -23,7 +23,7 @@
         <% @friend_list.each do |friend| %>
             <div class="list">
                 <% if friend.friend_user.profile.profile_image.present? %>
-                    <%= image_tag "/post_images/"+ friend.friend_user.profile.user_name,class:'friend_icon' %>
+                    <%= image_tag "/post_images/"+ friend.friend_user.profile.profile_image,class:'friend_icon' %>
                 <% else %>
                     <%= image_tag "/post_images/shoki.png",class:'friend_icon' %>
                 <% end %>
