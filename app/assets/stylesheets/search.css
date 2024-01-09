@@ -7,7 +7,7 @@ table{
     font-size:20px;
 }
 
-.iine {
-    border:none;
-    background-color:rgb(255, 255, 255,255)
+button{
+    border: none;
+    background-color: transparent;
 }
