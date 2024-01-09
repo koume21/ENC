@@ -20,9 +20,13 @@
                 <%= button_to 'チャット', '/chat_room/chat_page', method: :get %>
 
                 <% if @my_good.do_good?(friend.friend_id) %>
-                <%= button_to '♥', good_un_good_path(friend.friend_id), method: :delete %>
+                    <%= button_to good_un_good_path(friend.friend_id), method: :delete do %>
+                      <i class="bi bi-heart"></i>
+                    <% end %>
                 <% else %>
-                <%= button_to '♡', good_do_good_path(friend.friend_id), method: :post %>
+                    <%= button_to good_do_good_path(friend.friend_id), method: :post do %>
+                      <i class="bi bi-heart-fill text-danger"></i>
+                    <% end %>
                 <% end %>
                 <%= button_to 'ブロック', block_create_path(friend.friend_id), method: :post %>
             </div>
