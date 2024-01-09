@@ -1,11 +1,11 @@
 class SettingController < ApplicationController
   before_action :login_session
   def index
-    @setting = User.find(1)
+    @setting = User.find(session[:login_id])
   end
 
   def update
-    user = User.find(1)
+    user = User.find(session[:login_id])
     if user.update(user_params)
       redirect_to setting_index_path
       p "a"

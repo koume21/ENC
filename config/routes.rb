@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post 'friend_list/index/:block_id', to: 'friend_list#create_block', as: 'block_create'
   get 'friend_list/index'
+  post 'friend_list/index' => 'friend_list#search'
   get 'chat_room/chat_page'
   get 'chat_room/chat_page/:room_id', to: 'chat_room#show', as: 'chat_room'
   get 'search/index'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   patch 'setting/update'
   get 'mypage/profile'
   patch 'mypage/update'
+  get 'mypage/your_profile'
   get 'login/login'
   post 'login/create'
   root to: 'login#login'

@@ -8,7 +8,18 @@
 </head>
 <body>
     <h1>フレンド一覧</h1>
+    <tr>
+      <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
+        <div>
+          <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
+       </div>
+       <td> 
+         <%= submit_tag "検索" %> 
+       <td>
+     <% end %>
+    </tr>
     <div>
+        
         <% @friend_list.each do |friend| %>
             <div class="list">
                 <% if friend.friend_user.profile.profile_image.present? %>

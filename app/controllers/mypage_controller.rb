@@ -38,6 +38,11 @@ class MypageController < ApplicationController
       redirect_to mypage_profile_path,notice:"Update loss"
     end
   end
+
+  def your_profile
+
+  end
+
   private
   def set_user
     @user = User.find(params[:id])

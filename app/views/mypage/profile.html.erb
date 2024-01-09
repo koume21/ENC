@@ -45,7 +45,11 @@
                         <div>
                            <%= form.label "プロフィール画像" %>
                            <%= form.file_field :profile_image %>
-                           <%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %>
+                           <% if @profile.profile_image.present? %>
+                              <td><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></td>
+                           <% else %>
+                              <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
+                           <% end %>
                         </div>
                         <div>
                            <%= form.label "学年" %>
