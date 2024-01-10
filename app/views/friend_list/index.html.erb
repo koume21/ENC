@@ -1,47 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <%= stylesheet_link_tag 'friend_list', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
-    <h1>フレンド一覧</h1>
-    <tr>
-      <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
-        <div>
-          <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
-       </div>
-       <td> 
-         <%= submit_tag "検索" %> 
-       <td>
-     <% end %>
-    </tr>
-    <div>
-        
-        <% @friend_list.each do |friend| %>
-            <div class="list">
-                <% if friend.friend_user.profile.profile_image.present? %>
-                    <%= image_tag "/post_images/"+ friend.friend_user.profile.profile_image,class:'friend_icon' %>
-                <% else %>
-                    <%= image_tag "/post_images/shoki.png",class:'friend_icon' %>
-                <% end %>
-                <p><%= friend.friend_user.profile.user_name %></p>
-                <%= button_to 'チャット', '/chat_room/chat_page', method: :get %>
+<div>
+  <h1>フレンド一覧</h1>
+  <div>
+    <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
+      <div>
+        <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
+      </div>
+      <div> 
+        <%= submit_tag "検索" %> 
+      </div>
+    <% end %>
+  </div>
 
-                <% if @my_good.do_good?(friend.friend_id) %>
-                    <%= button_to good_un_good_path(friend.friend_id), method: :delete do %>
-                      <i class="bi bi-heart"></i>
-                    <% end %>
-                <% else %>
-                    <%= button_to good_do_good_path(friend.friend_id), method: :post do %>
-                      <i class="bi bi-heart-fill text-danger"></i>
-                    <% end %>
-                <% end %>
-                <%= button_to 'ブロック', block_create_path(friend.friend_id), method: :post %>
-            </div>
-        <% end %>
-    </div>
-</body>
-</html>
+  <div>
+      <% @friend_list.each do |friend| %>
+          <div class="list">
+              <% if friend.friend_user.profile.profile_image.present? %>
+                  <%= image_tag "/post_images/"+ friend.friend_user.profile.profile_image,class:'friend_icon' %>
+              <% else %>
+                  <%= image_tag "/post_images/shoki.png",class:'friend_icon' %>
+              <% end %>
+              <p><%= friend.friend_user.profile.user_name %></p>
+              <%= button_to 'チャット', '/chat_room/chat_page', method: :get %>
+
+              <div id='good-btn-<%= friend.friend_user.id %>'>
+                <%= render partial: "do_good/good_btn", locals: { user_id: friend.friend_user.id } %>
+              </div>
+              
+              <%= button_to 'ブロック', block_create_path(friend.friend_id), method: :post %>
+          </div>
+      <% end %>
+  </div>
+</div>
