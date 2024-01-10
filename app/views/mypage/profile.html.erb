@@ -74,14 +74,16 @@
 <div class = "good_list">
    <h3>いいね一覧</h3>
       <% @goods.each do |g| %>
-         <%= g.good_user.profile.profile_image %>
-         <% if g.good_user.profile.profile_image.present? %>
-            <%= image_tag "/post_images/"+g.good_user.profile.profile_image, class: 'icon' %>
-         <% else %>
-            <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
-         <% end %>
-         <%= g.good_user.profile.profile_image %>
-         <%= g.good_user.profile.user_name %>
+         <tr>
+            <td>
+               <% if g.good_user.profile.profile_image.present? %>
+                  <%= image_tag "/post_images/"+g.good_user.profile.profile_image, class: 'icon' %>
+               <% else %>
+                  <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
+               <% end %>
+            </td>
+            <td><%= g.good_user.profile.user_name %></td>
+         </tr>
       <% end %>
 </div>
 
