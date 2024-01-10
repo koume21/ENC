@@ -7,8 +7,12 @@ class MypageController < ApplicationController
     login_id = session[:login_id]
     @user = User.find(login_id)
     @profile = @user.profile
+
     @goods = Good.where(user_id: login_id)
+    @goods = @goods.where("good_id <> ?", login_id)
+    @my_good = @goods
   end
+
   def create
   end
   def update
