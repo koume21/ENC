@@ -1,9 +1,9 @@
 <% if @my_good.do_good?(user_id) %>
     <%= button_to good_un_good_path(user_id), method: :delete, remote: true do %>
-        <i class="bi bi-heart"></i>
+        <i class="bi bi-heart-fill text-danger"></i>
     <% end %>
 <% else %>
     <%= button_to good_do_good_path(user_id), method: :post,   remote: true do %>
-        <i class="bi bi-heart-fill text-danger"></i>
+        <i class="bi bi-heart"></i>
     <% end %>
 <% end %>
