@@ -1,23 +1,45 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>ENC</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
 
-      <%= stylesheet_link_tag 'mypage', media: 'all', 'data-turbolinks-track': 'reload' %>
-   </head>
+<div class="my_profile">
 
-  <body>
-      <div class="main">
-         <div class="my_profile">
-
-            <div class="header-top">
-               <p><%= @user.login %></p>
+   <div class="header-top">
+      <p><%= @user.login %></p>
+   </div>
+   <div class="profile">
+      <div class="my_icon">
+         <% if @profile.profile_image.present? %>
+            <td><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></td>
+         <% else %>
+            <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
+         <% end %>
+      </div>
+      <div>
+         <p><%= @user.profile.user_name %></p>
+         <p><%= @user.profile.comments %></p>
+         <p class="btn btn-primary" id="open">プロフィール編集</p>
+      </div>
+   </div>
+   
+   <div id="modal">
+      <div class="modal-window">
+         <div class="close-right">
+            <button id="closer">×</button>
+         </div>
+         <div class="modal-center">
+            <div class="modal-header">
+               <h1>プロフィール編集</h1>
             </div>
-            <div class="profile">
-               <div class="my_icon">
+            <%= form_with url: "/mypage/update",model: @profile, html: {multipart: true} do |form| %>
+               <div class="user_name">
+                  <%= form.label "ユーザーネーム" %>
+                  <%= form.text_field :user_name %>
+               </div>
+               <div>
+               <%= form.label "学校名" %> 
+               <%= form.collection_select(:school_id, @schools, :id, :name, {:include_blank => true}) %>
+               </div>
+               <div>
+                  <%= form.label "プロフィール画像" %>
+                  <%= form.file_field :profile_image %>
                   <% if @profile.profile_image.present? %>
                      <td><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></td>
                   <% else %>
@@ -25,85 +47,43 @@
                   <% end %>
                </div>
                <div>
-                  <p><%= @user.profile.user_name %></p>
-                  <p><%= @user.profile.comments %></p>
-                  <p class="btn btn-primary" id="open">プロフィール編集</p>
+                     <%= form.select(:grade, Profile::GRADES.invert, include_blank: true) %>
                </div>
-            </div>
-            
-            <div id="modal">
-               <div class="modal-window">
-                  <div class="close-right">
-                     <button id="closer">×</button>
-                  </div>
-                  <div class="modal-center">
-                     <div class="modal-header">
-                        <h1>プロフィール編集</h1>
-                     </div>
-                     <%= form_with url: "/mypage/update",model: @profile, html: {multipart: true} do |form| %>
-                        <div class="user_name">
-                           <%= form.label "ユーザーネーム" %>
-                           <%= form.text_field :user_name %>
-                        </div>
-                        <div>
-                        <%= form.label "学校名" %> 
-                        <%= collection_select(:profile, :school_id, @schools, :id, :name, {:include_blank => true}) %>
-                        </div>
-                        <div>
-                           <%= form.label "プロフィール画像" %>
-                           <%= form.file_field :profile_image %>
-                           <% if @profile.profile_image.present? %>
-                              <td><%= image_tag "/post_images/"+@profile.profile_image, class: 'icon' %></td>
-                           <% else %>
-                              <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
-                           <% end %>
-                        </div>
-                        <div>
-                           <%= form.label "学年" %>
-                           <select name="profile[grade]">
-                           <option value="1" label="1年"></option>
-                           <option value="2" label="2年"></option>
-                           <option value="3" label="3年"></option>
-                        </select>
-                        </div>
-                        <div>
-                           <%= form.label "部活動" %>
-                           <%= collection_select(:profile, :club_id, @clubs, :id, :name, {:include_blank => true}) %> 
-                        </div>
-                        <div>
-                        <%= form.label "性別" %>
-                        <%= collection_select(:profile, :type_id, @types, :id, :name, {:include_blank => false}) %>
-                        </div>
-                        <div>
-                        <%= form.label "一言" %>
-                        <%= form.text_field :comments %>
-                        </div>
-                        <div>
-                           <%= form.submit "更新" %>
-                        </div>
-                     <% end %>
-                  </div>
+               <div>
+                  <%= form.label "部活動" %>
+                  <%= collection_select(:profile, :club_id, @clubs, :id, :name, {:include_blank => true}) %> 
                </div>
-            </div>
-         </div>
-
-         <%# ここからいいね一覧 %>
-         <div class = "good_list">
-            <h3>いいね一覧</h3>
-               <% @goods.each do |g| %>
-                  <%= g.good_user.profile.profile_image %>
-                  <% if g.good_user.profile.profile_image.present? %>
-                     <%= image_tag "/post_images/"+g.good_user.profile.profile_image, class: 'icon' %>
-                  <% else %>
-                     <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
-                  <% end %>
-                  <%= g.good_user.profile.profile_image %>
-                  <%= g.good_user.profile.user_name %>
-               <% end %>
+               <div>
+               <%= form.label "性別" %>
+               <%= collection_select(:profile, :type_id, @types, :id, :name, {:include_blank => false}) %>
+               </div>
+               <div>
+               <%= form.label "一言" %>
+               <%= form.text_field :comments %>
+               </div>
+               <div>
+                  <%= form.submit "更新" %>
+               </div>
+            <% end %>
          </div>
       </div>
-      
-      
-      <%= javascript_pack_tag 'mypage' %>
-   </body>
-</html>
+   </div>
+</div>
+
+<%# ここからいいね一覧 %>
+<div class = "good_list">
+   <h3>いいね一覧</h3>
+      <% @goods.each do |g| %>
+         <%= g.good_user.profile.profile_image %>
+         <% if g.good_user.profile.profile_image.present? %>
+            <%= image_tag "/post_images/"+g.good_user.profile.profile_image, class: 'icon' %>
+         <% else %>
+            <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
+         <% end %>
+         <%= g.good_user.profile.profile_image %>
+         <%= g.good_user.profile.user_name %>
+      <% end %>
+</div>
+
+
+<%= javascript_pack_tag 'mypage' %>

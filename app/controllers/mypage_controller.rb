@@ -8,7 +8,6 @@ class MypageController < ApplicationController
     @user = User.find(login_id)
     @profile = @user.profile
     @goods = Good.where(user_id: login_id)
-    @grades = [{:id => 1, :name => "１年"},{:id => 2, :name => "2年"},{:id => 3, :name => "3年"}]
   end
   def create
   end
