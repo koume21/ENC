@@ -14,31 +14,31 @@
         <%= form_tag({controller:"search",action:"search"}, method: :post) do%>
           <tr>
             <td>
-              <div>
+              <div style="font-size:20px;">
                 <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
               </div>
             </td>
             <td>
-              <div>
+              <div style="font-size:20px;">
                 <%= collection_select(:school, :id, @schools, :id, :name, {selected: @school_id,:include_blank =>true}) %>
               </div>
             </td>
             <td>
-              <div>
+              <div style="font-size:20px;">
                 <%= select_tag :grade, options_for_select(Profile::GRADES.invert, @grade), include_blank: true %>
               </div>
             </td>
             <td>
-              <div>
+              <div style="font-size:20px;">
               　<%= collection_select(:club, :id, @clubs, :id, :name, {selected: @club_id,:include_blank => true}) %> 
               </div>
             </td>
             <td>
-              <div>
+              <div style="font-size:20px;">
               　<%= collection_select(:type, :id, @types, :id, :name, {selected: @type_id,:include_blank => true}) %> 
               </div>
             </td>
-              <td>
+              <td style="font-size:20px;">
                   <%= submit_tag "検索" %>
             </td>
           </tr>
@@ -69,7 +69,7 @@
   </table>
 
   <%#　ここからランキング　%>
-  <h3><b>ランキング</b></h3>
+  <h3 class="mb-4 mt-5"><b>ランキング</b></h3>
   <div id="ranking" class = "ranking">
   </div>
 </div>
