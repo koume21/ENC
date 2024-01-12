@@ -44,6 +44,8 @@ class MypageController < ApplicationController
 
   def your_profile
 
+    @users = User.find(params[:user_id])
+    @profile = @users.profile
   end
 
   private
