@@ -1,24 +1,25 @@
-
-<div>
-    <h1>チャット</h1>
-    <div class="user_name">
-        <% @rooms.each do |room| %>
-            <div class="user">
-                <%= link_to room.name , chat_room_path(room.id) %>
-            </div>
-            <br>
-        <% end %>
+<div class="person">
+    <div>
+        <h1>チャット</h1>
+        <div class="user_name">
+            <% @rooms.each do |room| %>
+                <div class="user">
+                    <%= link_to room.name , chat_room_path(room.id) %>
+                </div>
+                <br>
+            <% end %>
+        </div>
     </div>
-</div>
-<div class="talk">
-    <div class="chat" id="message">
-        <%= render partial: 'message', collection: @messages %>
-    </div>
-    <form>
-        <input type="text" class="text_box" data-behavior="room_speaker">
-        <input type="submit" value="送信">
-        <input id="room_id" type="hidden" value= "<%= @room_id %>">
-        <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
+    <div class="talk">
+        <div class="chat" id="message">
+            <%= render partial: 'message', collection: @messages %>
+        </div>
+        <form>
+            <input type="text" class="text_box" data-behavior="room_speaker">
+            <input type="submit" value="送信">
+            <input id="room_id" type="hidden" value= "<%= @room_id %>">
+            <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
 
-    </form>
+        </form>
+    </div>
 </div>
