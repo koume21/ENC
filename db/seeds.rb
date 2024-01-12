@@ -43,7 +43,7 @@ t2 = Type.create(name: "女性")
 user1 = User.create(login: "shuto",password: "shuto")
 Profile.create(user_id: user1.id, user_name: "柊人", school_id: s1.id, grade: 1, club_id: c2.id, type_id:t1.id)
 user2 = User.create(login: "masato",password: "masato")
-Profile.create(user_id: user2.id, user_name: "雅人", school_id: s2.id, grade: 2, club_id: c5.id, type_id:t1.id)
+Profile.create(user_id: user2.id, user_name: "雅斗", school_id: s2.id, grade: 2, club_id: c5.id, type_id:t1.id)
 user3 = User.create(login: "koumei",password: "koumei")
 Profile.create(user_id: user3.id, user_name: "孝明", school_id: s3.id, grade: 3, club_id: c6.id, type_id:t1.id)
 
