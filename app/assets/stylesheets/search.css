@@ -1,13 +1,14 @@
 .search{
     text-align: center;
+    margin: 50px 100px;
 }
 
 table{
-    font-size:20px;
+    font-size:25px;
     margin:auto;
-    
 }
-.ranking{
+
+.result{
     font-size:20px;
 }
 

@@ -46,25 +46,25 @@
       </table>
   <table class="table">
   <% @profiles.each do |profile| %>  <%#検索の表示　%>
-    <tr valign="middle">
-      <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
-      <td><%= profile.school.name if profile.school.present? %></td>
-      <td><%= Profile::GRADES[profile.grade] %></td>
-      <td><%= profile.user.login %>
-      <td><%= profile.user_name %></td>
-      <td><%= profile.club.name if profile.club.present? %></td>
-      <td><%= profile.type.name if profile.type.present? %></td>
-      <td>
-        <div id='friend-btn-<%= profile.user_id %>'>
-          <%= render partial: "become_friend/friend_btn", locals: { friend_id: profile.user_id } %>
-        </div>
-      </td>
-      <td>
-        <div id='good-btn-<%= profile.user.id %>'>
-          <%= render partial: "do_good/good_btn", locals: { user_id: profile.user.id } %>
-        </div>
-      </td>
-    </tr>
+      <tr valign="middle">
+          <td style="font-size:20px;"><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
+          <td style="font-size:20px;"><%= profile.school.name if profile.school.present? %></td>
+          <td style="font-size:20px;"><%= Profile::GRADES[profile.grade] %></td>
+          <td style="font-size:20px;"><%= profile.user.login %>
+          <td style="font-size:20px;"><%= profile.user_name %></td>
+          <td style="font-size:20px;"><%= profile.club.name if profile.club.present? %></td>
+          <td style="font-size:20px;"><%= profile.type.name if profile.type.present? %></td>
+          <td style="font-size:20px;">
+            <div id='friend-btn-<%= profile.user_id %>'>
+              <%= render partial: "become_friend/friend_btn", locals: { friend_id: profile.user_id } %>
+            </div>
+          </td>
+          <td style="font-size:20px;">
+            <div id='good-btn-<%= profile.user.id %>'>
+              <%= render partial: "do_good/good_btn", locals: { user_id: profile.user.id } %>
+            </div>
+          </td>
+      </tr>
   <% end %>
   </table>
 
@@ -74,15 +74,15 @@
   </div>
 </div>
 
-<% content_for :inline_js do %>
-<script type="text/javascript">
-<!--
-function get_ranking() {
-$.get("<%= ranking_path %>").done(function(data) {
-  $("#ranking").html(data);
-});
-}
-$(get_ranking());
-// -->
-</script>
-<% end %>
+    <% content_for :inline_js do %>
+    <script type="text/javascript">
+    <!--
+    function get_ranking() {
+    $.get("<%= ranking_path %>").done(function(data) {
+      $("#ranking").html(data);
+    });
+    }
+    $(get_ranking());
+    // -->
+    </script>
+    <% end %>
