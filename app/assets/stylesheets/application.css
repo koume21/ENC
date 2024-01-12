@@ -33,9 +33,16 @@ main {
     overflow-y: hidden;
 }
  */
+body {
+    width:100vw;
+}
 .column {
     display:flex;
     min-height:100vh;
+    width:100vw;
+}
+.app_main {
+    width:100%;
 }
 .sidebar_size {
     min-height:100%;

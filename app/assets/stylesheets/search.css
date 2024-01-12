@@ -1,9 +1,14 @@
-table{
-    font-size:20px;
-    margin:auto;
-    
+.search{
+    text-align: center;
+    margin: 50px 100px;
 }
-.ranking{
+
+table{
+    font-size:25px;
+    margin:auto;
+}
+
+.result{
     font-size:20px;
 }
 
