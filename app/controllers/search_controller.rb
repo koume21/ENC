@@ -13,6 +13,7 @@ class SearchController < ApplicationController
     @clubs = Club.all
     @types = Type.all
     @my_good = Good.where(user_id:session[:login_id])
+    @user = User.find(session[:login_id])
     
     @login_or_user_name = params[:login_or_user_name]
     @school_id = params[:school][:id]
@@ -37,26 +38,10 @@ class SearchController < ApplicationController
     @good_ranks = User.find(Good.group(:good_id).order('count(good_id) desc').limit(5).pluck(:good_id))
     @my_good = Good.where(user_id:session[:login_id])
     @login_id = session[:login_id]
+    @user = User.find(session[:login_id])
     render layout: false
   end
 
-  def friend_create
-    user = User.find(session[:login_id])
-    pertner = User.find(params[:friend_id])
-    room_name = user.profile.user_name + "&" + pertner.profile.user_name
-
-    new_friend = Friend.new(user_id: session[:login_id],friend_id: params[:friend_id])
-    pertner_friend = Friend.new(user_id: params[:friend_id],friend_id: session[:login_id])
-    new_friend.save
-    pertner_friend.save
-    new_room = Room.new(name: room_name)
-    new_room.save
-    member_my_add = RoomMember.new(room_id: new_room.id, user_id: session[:login_id])
-    member_pertner_add = RoomMember.new(room_id: new_room.id, user_id: params[:friend_id])
-    member_my_add.save
-    member_pertner_add.save
-    redirect_to '/search/index'
-  end
   private
   def login_session
     if session[:login_id] == nil

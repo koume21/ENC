@@ -81,6 +81,11 @@
                <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
             <% end %>
             <%= g.good_user.profile.user_name %>
+
+            <div id='friend-btn-<%= g.good_user.id %>'>
+               <%= render partial: "become_friend/friend_btn", locals: { friend_id: g.good_user.id } %>
+            </div>
+
             <div id='good-btn-<%= g.good_user.id %>'>
                <%= render partial: "do_good/good_btn", locals: { user_id: g.good_user.id } %>
             </div>

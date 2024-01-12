@@ -1,0 +1,7 @@
+<% if @user.friend?(friend_id) %>
+    <div>友達</div>
+<% else %>
+    <%= button_to become_friend_path(friend_id), method: :post, remote: true do %>
+        <i class="bi bi-person-plus-fill"></i>
+    <% end %>
+<% end%>
