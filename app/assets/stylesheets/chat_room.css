@@ -1,37 +1,116 @@
 
-.user input[type = "submit"] {
-    padding:20px 50px;
-    font-size:1rem;
-    color:white;
-    background-color:#4e4e4e;
+html {
+    font-size:20px;
 }
-.user input[type="submit"]:hover {
-    color:#4e4e4e;
-    background-color:rgb(199, 201, 202);
+
+.chat-top {
+    width:100%;
+    height:5%;
+    background-color:rgb(69, 73, 129);
+}
+.chat-top p {
+    margin:0;
+    width:fit-content;
+    color:white;
+    font-weight:bold;
+    font-size:1.3rem;
+    position:relative;
+    top: 10px;
+    left:10px;
 }
 
 p {
-    margin:0;
+    margin:0px;
 }
-
 .text_box {
-    width:600px;
+    width:75%;
 }
 
-.person {
+.chat_main {
     width:100%;
+    height:95%;
     display:flex;
 }
 
+.person {
+    width:20%;
 
-.talk {
+    border-right:rgb(179, 179, 179) 1px solid;
+}
+.user_name{
+    border-top:rgb(179, 179, 179) 1px solid;
+}
+.user {
+    height:60px;
+    /* box-sizing:border-box;
+    padding:10px; */
+    border-bottom:rgb(179, 179, 179) 1px solid;
+}
+.user a {
+    display:inline-block;
     width:100%;
+    height:100%;
+    text-decoration:none;
+    font-size: 1rem;
+}
+.user a:hover {
+    background-color:rgb(230, 230, 230);
+    color:black;
 }
 
+
+
+
+.message {
+    margin:10px;
+}
+.message p {
+    margin:0px;
+    font-size:0.8rem;
+}
 .chat_room {
     width:80%;
+    box-sizing:border-box;
+    padding:15px;
 }
 .mycomment {
     width:fit-content;
     margin-left: auto;
+    box-sizing: border-box;
+    padding:0.5em 1em;
+    background-color: rgb(133, 224, 110);
+    border-radius: 0.7rem;
+}
+.pertner {
+    width:fit-content;
+    box-sizing: border-box;
+    padding:0.5em 1em;
+    background-color: rgb(223, 223, 223);
+    border-radius: 0.7rem;
+}
+
+
+
+
+
+.chat_room form {
+    width:80%;
+    position:fixed;
+    bottom:0;
+    margin:10px;
+}
+.chat_room form [type="text"] {
+    padding:10px;
+    border-radius:1rem;
+}
+
+.chat_room form input[type = "submit"] {
+    padding:10px;
+    font-size:1rem;
+    color:white;
+    background-color:#4e4e4e;
+}
+.chat_room form [type="submit"]:hover {
+    color:#4e4e4e;
+    background-color:rgb(199, 201, 202);
 }

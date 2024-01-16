@@ -15,11 +15,11 @@
           <tr>
             <td>
               <div>
-                <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
+                <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"}%>
               </div>
             </td>
             <td>
-              <div>
+              <div style="padding:0 0 0 80px;">
                 <%= collection_select(:school, :id, @schools, :id, :name, {selected: @school_id,:include_blank =>true}) %>
               </div>
             </td>
@@ -38,13 +38,13 @@
               　<%= collection_select(:type, :id, @types, :id, :name, {selected: @type_id,:include_blank => true}) %> 
               </div>
             </td>
-              <td>
+              <td style="font-size:25px; padding:0 0 0 50px;">
                   <%= submit_tag "検索" %>
             </td>
           </tr>
         <% end %>
       </table>
-  <table class="table">
+  <table class="result">
   <% @profiles.each do |profile| %>  <%#検索の表示　%>
       <tr valign="middle">
           <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>

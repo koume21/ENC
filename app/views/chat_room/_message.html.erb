@@ -4,7 +4,7 @@
 <div class="message">
     <% if message.present? %>
         <div class="foo" data-message-owner="<%= message.user_id %>">
-            <p><%= message.user_id %>:<%= message.message %></p>
+            <p><%= message.message %></p>
         </div>
     <% else %>
         <p>メッセージがありません</p>

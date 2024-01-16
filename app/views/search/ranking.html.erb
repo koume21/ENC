@@ -1,7 +1,7 @@
 <table class="rannking">
     <% @good_ranks.each.with_index(1) do |user, i| %>
             <tr valign="middle">
-                <td><%= i %>位</td>
+                <td style="border:none;">No.<%= i %></td>
                 <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
                 <td><%= user.profile.user_name %></td>
                 <td><%= user.login %></td>

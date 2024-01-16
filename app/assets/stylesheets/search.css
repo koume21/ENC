@@ -5,24 +5,29 @@
 
 table{
     font-size:25px;
-    margin:auto;
+    margin:30px auto;
 }
 
 table td{
-    font-size:20px;
+    font-size:30px;
+}
+
+.result td{
+    border:solid 1px;
+    border-right: none;
+    border-left: none;
+    line-height: 60px;
+    padding: 0 40px;
 }
 
 .rannking td{
-    font-size:25px;
+    font-size:30px;
     margin:auto;
     border:solid 1px;
     border-right:none;
     border-left:none;
     line-height:50px;
-}
-
-.result{
-    font-size:20px;
+    padding:0 20px;
 }
 
 button{
