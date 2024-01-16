@@ -80,16 +80,17 @@
             <% else %>
                <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
             <% end %>
+　　　　　　<div class="friendshow">
+              <%= g.good_user.profile.user_name %>
 
-            <%= g.good_user.profile.user_name %>
+              <div id='friend-btn-<%= g.good_user.id %>'>
+                 <%= render partial: "become_friend/friend_btn", locals: { friend_id: g.good_user.id } %>
+              </div>
 
-            <div id='friend-btn-<%= g.good_user.id %>'>
-               <%= render partial: "become_friend/friend_btn", locals: { friend_id: g.good_user.id } %>
+              <div id='good-btn-<%= g.good_user.id %>'>
+                 <%= render partial: "do_good/good_btn", locals: { user_id: g.good_user.id } %>
             </div>
-
-            <div id='good-btn-<%= g.good_user.id %>'>
-               <%= render partial: "do_good/good_btn", locals: { user_id: g.good_user.id } %>
-            </div>
+           </div>
          </div>
       <% end %>
 </div>

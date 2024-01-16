@@ -53,7 +53,9 @@ p {
   height:130px;
   border-radius: 100px;
 }
-
+.friendshow{
+  display:flex;
+}
 
 
 
