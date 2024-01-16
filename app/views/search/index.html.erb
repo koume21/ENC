@@ -47,7 +47,7 @@
   <table class="result">
   <% @profiles.each do |profile| %>  <%#検索の表示　%>
       <tr valign="middle">
-          <td style="border-left:solid 1px;"><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
+          <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
           <td><%= profile.school.name if profile.school.present? %></td>
           <td><%= Profile::GRADES[profile.grade] %></td>
           <td><%= profile.user.login %>
@@ -59,7 +59,7 @@
               <%= render partial: "become_friend/friend_btn", locals: { friend_id: profile.user_id } %>
             </div>
           </td>
-          <td style="border-right:solid 1px;">
+          <td>
             <div id='good-btn-<%= profile.user.id %>'>
               <%= render partial: "do_good/good_btn", locals: { user_id: profile.user.id } %>
             </div>
