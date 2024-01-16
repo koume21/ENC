@@ -19,17 +19,17 @@ p {
 }
 
 .person {
-    width:auto;
+    width:100%;
     display:flex;
 }
 
 
 .talk {
-    width:65%;
+    width:100%;
 }
 
 .chat_room {
-    width: 500px;
+    width:80%;
 }
 .mycomment {
     width:fit-content;

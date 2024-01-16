@@ -80,7 +80,7 @@
             <% else %>
                <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
             <% end %>
-            <%= g.good_user.profile.user_name %>
+            <%= link_to g.good_user.profile.user_name, friend_profile_path(g.good_id), remote: true %>
 
             <div id='friend-btn-<%= g.good_user.id %>'>
                <%= render partial: "become_friend/friend_btn", locals: { friend_id: g.good_user.id } %>
@@ -93,5 +93,7 @@
       <% end %>
 </div>
 
+<!-- フレンドプロフィール用 -->
+<div id="modal-friend-profile" class="modal fade"></div>
 
 <%= javascript_pack_tag 'mypage' %>

@@ -74,15 +74,18 @@
   </div>
 </div>
 
-    <% content_for :inline_js do %>
-    <script type="text/javascript">
-    <!--
-    function get_ranking() {
-    $.get("<%= ranking_path %>").done(function(data) {
-      $("#ranking").html(data);
-    });
-    }
-    $(get_ranking());
-    // -->
-    </script>
-    <% end %>
+<!-- フレンドプロフィール用 -->
+<div id="modal-friend-profile" class="modal fade"></div>
+
+<% content_for :inline_js do %>
+<script type="text/javascript">
+<!--
+function get_ranking() {
+$.get("<%= ranking_path %>").done(function(data) {
+  $("#ranking").html(data);
+});
+}
+$(get_ranking());
+// -->
+</script>
+<% end %>
