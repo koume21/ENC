@@ -1,15 +1,15 @@
-<table>
+<table class="rannking">
     <% @good_ranks.each.with_index(1) do |user, i| %>
             <tr valign="middle">
-                <td style="font-size:30px;"><%= i %>位</td>
+                <td style="border:none;">No.<%= i %></td>
                 <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
-                <td style="font-size:30px;"><%= link_to user.profile.user_name, friend_profile_path(user.id), remote: true %></td>
-                <td style="font-size:30px;"><%= user.login %></td>
+                <td><%= user.profile.user_name %></td>
+                <td><%= user.login %></td>
                 <% if user.id != @login_id %>
-                    <td style="font-size:30px;">
+                    <td>
                         <%= render partial: "become_friend/friend_btn", locals: { friend_id: user.id } %>
                     </td>
-                    <td style="font-size:30px;">
+                    <td>
                         <%= render partial: "do_good/good_btn", locals: { user_id: user.id } %>
                     </td>
                 <% else %>

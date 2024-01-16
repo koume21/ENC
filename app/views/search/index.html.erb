@@ -14,52 +14,52 @@
         <%= form_tag({controller:"search",action:"search"}, method: :post) do%>
           <tr>
             <td>
-              <div style="font-size:20px;">
-                <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"} %>
+              <div>
+                <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"}%>
               </div>
             </td>
             <td>
-              <div style="font-size:20px;">
+              <div style="padding:0 0 0 80px;">
                 <%= collection_select(:school, :id, @schools, :id, :name, {selected: @school_id,:include_blank =>true}) %>
               </div>
             </td>
             <td>
-              <div style="font-size:20px;">
+              <div>
                 <%= select_tag :grade, options_for_select(Profile::GRADES.invert, @grade), include_blank: true %>
               </div>
             </td>
             <td>
-              <div style="font-size:20px;">
+              <div>
               　<%= collection_select(:club, :id, @clubs, :id, :name, {selected: @club_id,:include_blank => true}) %> 
               </div>
             </td>
             <td>
-              <div style="font-size:20px;">
+              <div>
               　<%= collection_select(:type, :id, @types, :id, :name, {selected: @type_id,:include_blank => true}) %> 
               </div>
             </td>
-              <td style="font-size:20px;">
+              <td style="font-size:25px; padding:0 0 0 50px;">
                   <%= submit_tag "検索" %>
             </td>
           </tr>
         <% end %>
       </table>
-  <table class="table">
+  <table class="result">
   <% @profiles.each do |profile| %>  <%#検索の表示　%>
       <tr valign="middle">
-          <td style="font-size:20px;"><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
-          <td style="font-size:20px;"><%= profile.school.name if profile.school.present? %></td>
-          <td style="font-size:20px;"><%= Profile::GRADES[profile.grade] %></td>
-          <td style="font-size:20px;"><%= profile.user.login %>
-          <td style="font-size:20px;"><%= link_to profile.user_name, friend_profile_path(profile.user_id), remote: true %></td>
-          <td style="font-size:20px;"><%= profile.club.name if profile.club.present? %></td>
-          <td style="font-size:20px;"><%= profile.type.name if profile.type.present? %></td>
-          <td style="font-size:20px;">
+          <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
+          <td><%= profile.school.name if profile.school.present? %></td>
+          <td><%= Profile::GRADES[profile.grade] %></td>
+          <td><%= profile.user.login %>
+          <td><%= profile.user_name %></td>
+          <td><%= profile.club.name if profile.club.present? %></td>
+          <td><%= profile.type.name if profile.type.present? %></td>
+          <td>
             <div id='friend-btn-<%= profile.user_id %>'>
               <%= render partial: "become_friend/friend_btn", locals: { friend_id: profile.user_id } %>
             </div>
           </td>
-          <td style="font-size:20px;">
+          <td>
             <div id='good-btn-<%= profile.user.id %>'>
               <%= render partial: "do_good/good_btn", locals: { user_id: profile.user.id } %>
             </div>
