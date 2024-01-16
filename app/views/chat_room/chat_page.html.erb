@@ -1,40 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <%# <meta name="viewport" content="width=device-width, initial-scale=1.0"> %>
-    <title>チャットページ</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'chat_room', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
-    <div class="column">
-        <div>
-            <h1>チャット</h1>
-            <div class="user_name">
-                <% @rooms.each do |room| %>
-                    <div class="user">
-                        <%= link_to room.name , chat_room_path(room.id) %>
-                    </div>
-                    <br>
-                <% end %>
-            </div>
+<div class="person">
+    <div>
+        <h1>チャット</h1>
+        <div class="user_name">
+            <% @rooms.each do |room| %>
+                <div class="user">
+                    <%= link_to room.name , chat_room_path(room.id) %>
+                </div>
+                <br>
+            <% end %>
         </div>
-        <div>
-            <div class="chat" id="message">
-                <%= render partial: 'message', collection: @messages %>
-            </div>
-            <form>
-                <input type="text" data-behavior="room_speaker">
-                <input type="submit" value="送信">
-                <input id="room_id" type="hidden" value= "<%= @room_id %>">
-                <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
-
-            </form>
-        </div>
-
-        
     </div>
-</body>
-</html>
+    <div class="talk">
+        <div class="chat" id="message">
+            <%= render partial: 'message', collection: @messages %>
+        </div>
+        <form>
+            <input type="text" class="text_box" data-behavior="room_speaker">
+            <input type="submit" value="送信">
+            <input id="room_id" type="hidden" value= "<%= @room_id %>">
+            <input id="current_user_id" type="hidden" value="<%= session[:login_id] %>">
+
+        </form>
+    </div>
+</div>

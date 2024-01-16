@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   patch 'setting/update'
   get 'mypage/profile'
   patch 'mypage/update'
-  get 'mypage/your_profile'
+  get 'mypage/your_profile/:user_id', to: 'mypage#your_profile', as:'your_profile'
   get 'login/login'
   post 'login/create'
   root to: 'login#login'
