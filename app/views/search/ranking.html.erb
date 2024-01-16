@@ -3,7 +3,7 @@
             <tr valign="middle">
                 <td style="font-size:30px;"><%= i %>位</td>
                 <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
-                <td style="font-size:30px;"><%= user.profile.user_name %></td>
+                <td style="font-size:30px;"><%= link_to user.profile.user_name, friend_profile_path(user.id), remote: true %></td>
                 <td style="font-size:30px;"><%= user.login %></td>
                 <% if user.id != @login_id %>
                     <td style="font-size:30px;">

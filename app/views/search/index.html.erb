@@ -51,7 +51,7 @@
           <td style="font-size:20px;"><%= profile.school.name if profile.school.present? %></td>
           <td style="font-size:20px;"><%= Profile::GRADES[profile.grade] %></td>
           <td style="font-size:20px;"><%= profile.user.login %>
-          <td style="font-size:20px;"><%= profile.user_name %></td>
+          <td style="font-size:20px;"><%= link_to profile.user_name, friend_profile_path(profile.user_id), remote: true %></td>
           <td style="font-size:20px;"><%= profile.club.name if profile.club.present? %></td>
           <td style="font-size:20px;"><%= profile.type.name if profile.type.present? %></td>
           <td style="font-size:20px;">
@@ -74,15 +74,18 @@
   </div>
 </div>
 
-    <% content_for :inline_js do %>
-    <script type="text/javascript">
-    <!--
-    function get_ranking() {
-    $.get("<%= ranking_path %>").done(function(data) {
-      $("#ranking").html(data);
-    });
-    }
-    $(get_ranking());
-    // -->
-    </script>
-    <% end %>
+<!-- フレンドプロフィール用 -->
+<div id="modal-friend-profile" class="modal fade"></div>
+
+<% content_for :inline_js do %>
+<script type="text/javascript">
+<!--
+function get_ranking() {
+$.get("<%= ranking_path %>").done(function(data) {
+  $("#ranking").html(data);
+});
+}
+$(get_ranking());
+// -->
+</script>
+<% end %>
