@@ -1,16 +1,18 @@
-<div class="person">
-    <div>
+<div class="chat-top">
+<p>chat</p>
+</div>
+<div class="chat_main">
+    <div class="person">
         <h1>チャット</h1>
         <div class="user_name">
             <% @rooms.each do |room| %>
                 <div class="user">
                     <%= link_to room.name , chat_room_path(room.id) %>
                 </div>
-                <br>
             <% end %>
         </div>
     </div>
-    <div class="talk">
+    <div class="chat_room">
         <div class="chat" id="message">
             <%= render partial: 'message', collection: @messages %>
         </div>

@@ -33,6 +33,7 @@ main {
     overflow-y: hidden;
 }
  */
+
 body {
     width:100vw;
 }
@@ -43,6 +44,7 @@ body {
 }
 .app_main {
     width:100%;
+    min-height:100vh;
 }
 .sidebar_size {
     min-height:100%;
