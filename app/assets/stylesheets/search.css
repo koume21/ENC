@@ -12,10 +12,13 @@ table td{
     font-size:20px;
 }
 
-.rannking{
+.rannking td{
     font-size:25px;
     margin:auto;
     border:solid 1px;
+    border-right:none;
+    border-left:none;
+    line-height:50px;
 }
 
 .result{
