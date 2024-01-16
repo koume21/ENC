@@ -26,18 +26,32 @@ p {
 .my_icon{
     width:fit-content;
 }
+.my_icon img {
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+}
 .proname {
     width: fit-content;
 }
 .profile {
-    font-size:20px;
     text-align:center;
     display:flex;
     justify-content: center;
 }
+
+.proname p{
+  font-size:30px;
+  line-height:35px;
+}
 .good_list{
     margin: 0 auto;
     width:16%
+}
+.good_list img{
+  width:130px;
+  height:130px;
+  border-radius: 100px;
 }
 
 
