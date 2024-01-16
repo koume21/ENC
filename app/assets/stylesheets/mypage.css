@@ -23,9 +23,23 @@ p {
     color:white;
     border-bottom:1px solid black;
 }
-.profile {
-    display:flex;
+.my_icon{
+    width:fit-content;
 }
+.proname {
+    width: fit-content;
+}
+.profile {
+    font-size:20px;
+    text-align:center;
+    display:flex;
+    justify-content: center;
+}
+.good_list{
+    margin: 0 auto;
+    width:16%
+}
+
 
 
 

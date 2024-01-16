@@ -12,7 +12,7 @@
             <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
          <% end %>
       </div>
-      <div>
+      <div class="proname">
          <p><%= @user.profile.user_name %></p>
          <p><%= @user.profile.comments %></p>
          <p class="btn btn-primary" id="open">プロフィール編集</p>
@@ -72,7 +72,7 @@
 
 <%# ここからいいね一覧 %>
 <div class = "good_list">
-   <h3>いいね一覧</h3>
+   <h3 class="mb-5 mt-4"><b>いいね一覧<b></h3>
       <% @goods.each do |g| %>
          <div>
             <% if g.good_user.profile.profile_image.present? %>
