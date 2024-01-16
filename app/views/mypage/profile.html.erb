@@ -74,26 +74,27 @@
 <div class = "good_list">
    <h3 class="mb-5 mt-4"><b>いいね一覧<b></h3>
       <% @goods.each do |g| %>
-         <div>
+         <div class="friend-row">
             <% if g.good_user.profile.profile_image.present? %>
                <%= image_tag "/post_images/"+g.good_user.profile.profile_image, class: 'icon' %>
             <% else %>
                <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
             <% end %>
 　　　　　　<div class="friendshow">
-              <%= g.good_user.profile.user_name %>
+              <%= link_to g.good_user.profile.user_name, friend_profile_path(g.good_id), remote: true %>
+                <div id='friend-btn-<%= g.good_user.id %>'>
+                   <%= render partial: "become_friend/friend_btn", locals: { friend_id: g.good_user.id } %>
+                </div>
 
-              <div id='friend-btn-<%= g.good_user.id %>'>
-                 <%= render partial: "become_friend/friend_btn", locals: { friend_id: g.good_user.id } %>
-              </div>
-
-              <div id='good-btn-<%= g.good_user.id %>'>
-                 <%= render partial: "do_good/good_btn", locals: { user_id: g.good_user.id } %>
-            </div>
+                <div id='good-btn-<%= g.good_user.id %>'>
+                   <%= render partial: "do_good/good_btn", locals: { user_id: g.good_user.id } %>
+                </div>
            </div>
          </div>
       <% end %>
 </div>
 
+<!-- フレンドプロフィール用 -->
+<div id="modal-friend-profile" class="modal fade"></div>
 
 <%= javascript_pack_tag 'mypage' %>

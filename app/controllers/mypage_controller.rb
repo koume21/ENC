@@ -42,12 +42,6 @@ class MypageController < ApplicationController
     end
   end
 
-  def your_profile
-
-    @users = User.find(params[:user_id])
-    @profile = @users.profile
-  end
-
   private
   def set_user
     @user = User.find(params[:id])

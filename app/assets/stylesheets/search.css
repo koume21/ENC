@@ -8,6 +8,19 @@ table{
     margin:auto;
 }
 
+table td{
+    font-size:20px;
+}
+
+.rannking td{
+    font-size:25px;
+    margin:auto;
+    border:solid 1px;
+    border-right:none;
+    border-left:none;
+    line-height:50px;
+}
+
 .result{
     font-size:20px;
 }

@@ -46,7 +46,11 @@ p {
 }
 .good_list{
     margin: 0 auto;
-    width:16%
+    width:50%;
+}
+.friend-row {
+    display:flex;
+    align-items:center;
 }
 .good_list img{
   width:130px;
@@ -54,7 +58,14 @@ p {
   border-radius: 100px;
 }
 .friendshow{
+  background-color:burlywood;
+  width:50%;
   display:flex;
+  justify-content: space-between;
+  padding:10px;
+  margin: 10px;;
+  font-size:30px;
+  line-height:50px;
 }
 
 

@@ -1,0 +1,28 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">プロフィール</h5>
+        </div>        
+
+        <div class="modal-body">
+            <div>
+                <%= @users.login %>
+            </div>
+            <div>
+                <div class="your_icon">
+                    <% if @profile.profile_image.present? %>
+                        <%= image_tag "/post_images/"+ @profile.profile_image, class: 'icon' %>
+                    <% else %>
+                        <%= image_tag "/post_images/shoki.png",class: 'good_icon' %>
+                    <% end %>
+                </div>
+                <h1><%= @profile.user_name if @profile.user_name.present? %></h1>
+                <p><%= @profile.school.name if @profile.school.present? %></p>
+                <p><%= @profile.grade if @profile.grade.present? %></p>
+                <p><%= @profile.club.name if @profile.club.present? %></p>
+                <p><%= @profile.type.name if @profile.type.present? %></p>
+                <p><%= @profile.comments if @profile.comments.present? %></p>
+            </div>
+        </div>
+    </div>
+</div>
