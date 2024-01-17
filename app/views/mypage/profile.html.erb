@@ -34,10 +34,6 @@
                   <%= form.text_field :user_name %>
                </div>
                <div>
-               <%= form.label "学校名" %> 
-               <%= form.collection_select(:school_id, @schools, :id, :name, {:include_blank => true}) %>
-               </div>
-               <div>
                   <%= form.label "プロフィール画像" %>
                   <%= form.file_field :profile_image %>
                   <% if @profile.profile_image.present? %>
@@ -46,22 +42,31 @@
                      <td><%= image_tag "/post_images/shoki.png",class: 'good_icon' %></td>
                   <% end %>
                </div>
-               <div>
+               <div class="modal-row">
+                  <div>
+                     <%= form.label "学校名" %> 
+                     <%= form.collection_select(:school_id, @schools, :id, :name, {:include_blank => true}) %>
+                  </div>
+                  <div>
+                     <%= form.label "学年" %>
                      <%= form.select(:grade, Profile::GRADES.invert, include_blank: true) %>
+                  </div>
                </div>
-               <div>
-                  <%= form.label "部活動" %>
-                  <%= collection_select(:profile, :club_id, @clubs, :id, :name, {:include_blank => true}) %> 
+               <div class="modal-row">
+                  <div>
+                     <%= form.label "部活動" %>
+                     <%= collection_select(:profile, :club_id, @clubs, :id, :name, {:include_blank => true}) %> 
+                  </div>
+                  <div>
+                  <%= form.label "性別" %>
+                  <%= collection_select(:profile, :type_id, @types, :id, :name, {:include_blank => false}) %>
+                  </div>
                </div>
-               <div>
-               <%= form.label "性別" %>
-               <%= collection_select(:profile, :type_id, @types, :id, :name, {:include_blank => false}) %>
+               <div class="modal-comments">
+                  <%= form.label "一言" %>
+                  <%= form.text_field :comments %>
                </div>
-               <div>
-               <%= form.label "一言" %>
-               <%= form.text_field :comments %>
-               </div>
-               <div>
+               <div class="modal-update">
                   <%= form.submit "更新" %>
                </div>
             <% end %>

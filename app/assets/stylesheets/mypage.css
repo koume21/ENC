@@ -146,6 +146,10 @@ p {
     color: #969696;
     cursor: pointer;
 }
+.modal-header h1 {
+    text-align:center;
+    margin:0 auto;
+}
 .close-right {
     display:flex;
     justify-content:flex-end;
@@ -168,17 +172,53 @@ p {
     font-size: 1em;
     line-height: 1.5;
 }
-.user_name input:focus {
+.modal-window input:focus {
     outline: 2px solid #2589d0;
 }
-
+.modal-row {
+    display:flex;
+    width: 80%;
+    margin:0 auto;
+    justify-content: space-between;
+}
+.modal-window select {
+    width: 150px;
+    height:40px;
+    border-radius:0.3rem;
+}
+.modal-window select:focus {
+    outline: 2px solid #2589d0;
+}
+.modal-comments {
+    width:100%;
+}
+.modal-comments input {
+    width:80%;
+    height:40px;
+    border: 1px solid rgb(168, 168, 168);
+    border-radius:0.2rem;
+}
+.modal-update input {
+    width:100px;
+    height:40px;
+    margin-top:20px;
+    background-color:white;
+    border:1px solid #4e4e4e;
+    border-radius:1rem;
+}
+.modal-update input:hover {
+    background-color:#4e4e4e;
+    color:white;
+}
 
 .icon{
-    width:200px ;
-    height:200px ;
+    width:100px ;
+    height:100px ;
+    border-radius:100px;
 }
 
 .good_icon{
     width:100px ;
     height:100px ;
+    border-radius:100px;
 }

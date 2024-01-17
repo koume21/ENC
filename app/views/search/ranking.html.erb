@@ -2,7 +2,14 @@
     <% @good_ranks.each.with_index(1) do |user, i| %>
             <tr valign="middle">
                 <td style="border:none;">No.<%= i %></td>
-                <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
+                <td>
+                    <% if user.profile.profile_image.present? %>
+                        <%= image_tag "/post_images/"+user.profile.profile_image, class: "ranking_icon"%>
+                    <% else %>
+                        <%= image_tag "/post_images/shoki.png", class: "ranking_icon" %>
+                    <% end %>
+                </td>
+                <td><%= user.profile.user_name %></td>
                 <td><%= link_to user.profile.user_name, friend_profile_path(user.profile.user_id), remote: true %></td>
                 <td><%= user.login %></td>
                 <% if user.id != @login_id %>
