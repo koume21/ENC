@@ -43,6 +43,8 @@ body {
     width:100vw;
 }
 .app_main {
+    background-image: url("/post_images/haikei.jpg");
+    background-size: cover;
     width:100%;
     min-height:100vh;
 }
