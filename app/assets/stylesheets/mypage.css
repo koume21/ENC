@@ -13,20 +13,27 @@ p {
 .main {
     width:100%;
 }
+.modal-header h1{
+    font-size:30px;
+}
 .my_profile {
     width:100%;
     border-bottom:1px solid black;
 }
 .header-top {
     width:100%;
-    background-color:rgb(245, 53, 219);
-    color:white;
+    text-align:center;
     border-bottom:1px solid black;
+}
+.header-top p{
+    text-align: left;
+    font-size:30px;
 }
 .my_icon{
     width:fit-content;
 }
 .my_icon img {
+    margin-right: 30px;
     width:200px;
     height:200px;
     border-radius: 100px;
@@ -35,9 +42,10 @@ p {
     width: fit-content;
 }
 .profile {
-    text-align:center;
+    margin: 50 auto;
+    text-align:left;
     display:flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .proname p{
