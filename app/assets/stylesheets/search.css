@@ -9,7 +9,7 @@ table{
 }
 
 table td{
-    font-size:30px;
+    font-size:25px;
 }
 
 .result td{
@@ -33,4 +33,16 @@ table td{
 button{
     border: none;
     background-color: transparent;
+}
+
+.icon{
+    width:130px;
+    height:130px;
+    border-radius: 100px;
+}
+
+.ranking_icon{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
 }

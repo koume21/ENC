@@ -19,7 +19,7 @@
               </div>
             </td>
             <td>
-              <div style="padding:0 0 0 80px;">
+              <div style="padding:0 0 0 50px;">
                 <%= collection_select(:school, :id, @schools, :id, :name, {selected: @school_id,:include_blank =>true}) %>
               </div>
             </td>
@@ -47,7 +47,13 @@
   <table class="result">
   <% @profiles.each do |profile| %>  <%#検索の表示　%>
       <tr valign="middle">
-          <td><%= image_tag "/post_images/"+profile.profile_image, class: "rounded-circle", width: 40, height: 40 if profile.profile_image.present? %></td>
+          <td>
+            <% if profile.profile_image.present? %>
+              <%= image_tag "/post_images/"+profile.profile_image, class: "icon"%>
+            <% else %>
+              <%= image_tag "/post_images/shoki.png", class: "icon" %>
+            <% end %>
+          </td>
           <td><%= profile.school.name if profile.school.present? %></td>
           <td><%= Profile::GRADES[profile.grade] %></td>
           <td><%= profile.user.login %>
