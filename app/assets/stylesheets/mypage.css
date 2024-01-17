@@ -26,7 +26,8 @@ p {
     border-bottom:1px solid black;
 }
 .header-top p{
-    text-align: left;
+    margin-left:100px; 
+    text-align: center;
     font-size:30px;
 }
 .my_icon{
@@ -42,10 +43,9 @@ p {
     width: fit-content;
 }
 .profile {
-    margin: 50 auto;
-    text-align:left;
+    text-align:center;
     display:flex;
-    justify-content: left;
+    justify-content: center;
 }
 
 .proname p{

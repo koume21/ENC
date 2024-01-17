@@ -3,7 +3,7 @@
             <tr valign="middle">
                 <td style="border:none;">No.<%= i %></td>
                 <td><%= image_tag "/post_images/"+user.profile.profile_image, class: "rounded-circle", width: 40, height: 40 if user.profile.profile_image.present? %></td>
-                <td><%= user.profile.user_name %></td>
+                <td><%= link_to user.profile.user_name, friend_profile_path(user.profile.user_id), remote: true %></td>
                 <td><%= user.login %></td>
                 <% if user.id != @login_id %>
                     <td>
