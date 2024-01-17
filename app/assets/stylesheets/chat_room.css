@@ -1,4 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 html {
     font-size:20px;
 }
@@ -6,17 +9,23 @@ html {
 .chat-top {
     width:100%;
     height:5%;
-    background-color:rgb(69, 73, 129);
+    
+    background-color:rgb(116, 187, 183);
+    position:relative;
 }
 .chat-top p {
     margin:0;
     width:fit-content;
     color:white;
+    font-family: 'Itim', cursive;
     font-weight:bold;
     font-size:1.3rem;
-    position:relative;
-    top: 10px;
-    left:10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    text-align:center;
 }
 
 p {
@@ -37,13 +46,15 @@ p {
 
     border-right:rgb(179, 179, 179) 1px solid;
 }
+.person h1 {
+    font-family: 'Itim', cursive;
+    text-align:center;
+}
 .user_name{
     border-top:rgb(179, 179, 179) 1px solid;
 }
 .user {
     height:60px;
-    /* box-sizing:border-box;
-    padding:10px; */
     border-bottom:rgb(179, 179, 179) 1px solid;
 }
 .user a {
@@ -51,14 +62,14 @@ p {
     width:100%;
     height:100%;
     text-decoration:none;
-    font-size: 1rem;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    padding:10px;
 }
 .user a:hover {
     background-color:rgb(230, 230, 230);
     color:black;
 }
-
-
 
 
 .message {
