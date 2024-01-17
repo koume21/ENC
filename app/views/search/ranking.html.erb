@@ -10,6 +10,7 @@
                     <% end %>
                 </td>
                 <td><%= user.profile.user_name %></td>
+                <td><%= link_to user.profile.user_name, friend_profile_path(user.profile.user_id), remote: true %></td>
                 <td><%= user.login %></td>
                 <% if user.id != @login_id %>
                     <td>

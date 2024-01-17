@@ -57,7 +57,7 @@
           <td><%= profile.school.name if profile.school.present? %></td>
           <td><%= Profile::GRADES[profile.grade] %></td>
           <td><%= profile.user.login %>
-          <td><%= profile.user_name %></td>
+          <td><%= link_to profile.user_name, friend_profile_path(profile.user_id), remote: true %></td>
           <td><%= profile.club.name if profile.club.present? %></td>
           <td><%= profile.type.name if profile.type.present? %></td>
           <td>
