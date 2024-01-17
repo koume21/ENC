@@ -1,18 +1,22 @@
 <!DOCTYPE html>
   <head>
+      <%= stylesheet_link_tag 'setting', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
    <body>
-     <h1>設定<h1>
-     <%= form_with url: '/setting/update',model: @setting do |form| %>
-         <div>
-            <%= form.label "ユーザーID" %>
-             <%= form.text_field :login %>
-         </div>
-          <div>
-            <%= form.label "パスワード" %>
-            <%= form.text_field :password %>
-          </div>
-         <%= form.submit "新規登録" %>
-     <% end %>
+    <div class="main">
+      <h1 class="mt-3 mb-4">設定<h1>
+        <%= form_with url: '/setting/update',model: @setting do |form| %>
+            <div class="setting">
+                <%= form.label "ユーザーID" %>
+                <%= form.text_field :login %>
+            </div>
+              <div class="setting">
+                <%= form.label "パスワード" %>
+                <%= form.text_field :password %>
+              </div>
+            <div class="touroku mt-5">  
+              <%= form.submit "新規登録" %>
+            </div>
+        <% end %>
     </body>
 <html>
