@@ -18,17 +18,20 @@ p {
 }
 .my_profile {
     width:100%;
-    border-bottom:1px solid black;
+    border-bottom:1px solid rgb(248, 10, 228);
 }
 .header-top {
     width:100%;
     text-align:center;
-    border-bottom:1px solid black;
+    box-shadow: 10px 5px 5px black;
+    border-bottom:1px solid rgb(248, 10, 228);
 }
 .header-top p{
-    margin-left:100px; 
+    font-family: 'Times New Roman', Times, serif;
+    margin-left:230px; 
     text-align: center;
-    font-size:30px;
+    font-size:40px;
+    padding-top: 10px;
 }
 .my_icon{
     width:fit-content;
@@ -49,6 +52,8 @@ p {
 }
 
 .proname p{
+  font-family: 'Times New Roman', Times, serif;
+  margin-top:5px;
   font-size:30px;
   line-height:35px;
 }
@@ -66,6 +71,7 @@ p {
   border-radius: 100px;
 }
 .friendshow{
+  font-family: 'Times New Roman', Times, serif;
   background-color:burlywood;
   width:50%;
   display:flex;
