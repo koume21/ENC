@@ -18,13 +18,13 @@ p {
 }
 .my_profile {
     width:100%;
-    box-shadow: 10px 5px 5px orange;
+    box-shadow: 10px 5px 5px ;
     border-bottom:1px solid rgb(248, 10, 228);
 }
 .header-top {
     width:100%;
     text-align:center;
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 5px 5px;
     border-bottom:1px solid rgb(248, 10, 228);
 }
 .header-top p{
