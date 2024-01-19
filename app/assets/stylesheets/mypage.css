@@ -17,20 +17,18 @@ p {
     font-size:30px;
 }
 .my_profile {
+    background-color: rgb(209, 201, 202);
     width:100%;
 }
 .header-top {
-    background-color: rgb(209, 201, 202);
     width:100%;
     text-align:center;
 }
 .header-top p{
-    background-color: rgb(209, 201, 202);
     font-family: 'Times New Roman', Times, serif;
     margin-left:230px; 
     text-align: center;
     font-size:40px;
-    padding-top: 10px;
 }
 .my_icon{
     width:fit-content;
