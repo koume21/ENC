@@ -4,7 +4,7 @@
 
 html {
     font-size:20px;
-    max-height:100vw;
+    max-height:100vh;
 }
 
 .chat-top {
@@ -74,12 +74,12 @@ p {
 
 #message {
     min-width:90%;
-    max-height:90%;
-    border: 1px solid black;
+    max-height:820px;
+    box-sizing: border-box;
     white-space: nowrap;
     overflow:scroll;
     overflow-y:auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 .chat_room {
     width:80%;
