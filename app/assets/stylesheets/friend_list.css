@@ -1,8 +1,13 @@
+h1{
+    text-align: center;
+    margin:20px 0 40px 0;
+}
+
 .friend_search{
     width:30%;
     display: flex;
     position:relative;
-    left: 170px;
+    left: 950px;
 }
 
 .friend_list_pro td{
