@@ -4,6 +4,7 @@
 
 html {
     font-size:20px;
+    max-height:100vw;
 }
 
 .chat-top {
@@ -44,7 +45,6 @@ p {
 
 .person {
     width:20%;
-
     border-right:rgb(179, 179, 179) 1px solid;
 }
 .person h1 {
@@ -72,19 +72,32 @@ p {
     color:black;
 }
 
+#message {
+    min-width:90%;
+    max-height:90%;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow:scroll;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+.chat_room {
+    width:80%;
+    max-height:100%;
+    box-sizing:border-box;
+    padding:10px 0px;
+    
+}
 
 .message {
     margin:10px;
+    
 }
 .message p {
     margin:0px;
     font-size:0.8rem;
 }
-.chat_room {
-    width:80%;
-    box-sizing:border-box;
-    padding:15px;
-}
+
 .mycomment {
     width:fit-content;
     margin-left: auto;

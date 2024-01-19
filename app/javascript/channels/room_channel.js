@@ -1,5 +1,8 @@
 import consumer from "./consumer"
 
+let button = document.getElementById('text-button');
+
+
 const appRoom = consumer.subscriptions.create("RoomChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
