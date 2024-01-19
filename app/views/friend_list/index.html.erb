@@ -1,5 +1,5 @@
 <div>
-  <h1>フレンド一覧</h1>
+  <h1>フレンド一覧 <i class="bi bi-person-heart"></i><i class="bi bi-person-fill"></i></h1>
     
         <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
         <div class="friend_search">
@@ -11,23 +11,30 @@
 </div>
 
   <div>
+  <table class="friend_list_pro">
       <% @friend_list.each do |friend| %>
-          <div class="list">
+          <tr valign="middle">
+            <td>
               <% if friend.friend_user.profile.profile_image.present? %>
-                  <%= image_tag "/post_images/"+ friend.friend_user.profile.profile_image,class:'friend_icon' %>
+                <%= image_tag "/post_images/"+friend.friend_user.profile.profile_image, class: "friend_icon"%>
               <% else %>
-                  <%= image_tag "/post_images/shoki.png",class:'friend_icon' %>
+                <%= image_tag "/post_images/shoki.png", class: "friend_icon" %>
               <% end %>
-              <p><%= link_to friend.friend_user.profile.user_name, friend_profile_path(friend.friend_id), remote: true %></p>
-              <%= button_to 'チャット', '/chat_room/chat_page', method: :get %>
-
+            </td>
+            <td><%= friend.friend_user.profile.school.name if friend.friend_user.profile.school.present? %></td>
+            <td><%= Profile::GRADES[friend.friend_user.profile.grade] %></td>
+            <td><%= friend.friend_user.profile.user.login %>
+            <td><%= link_to friend.friend_user.profile.user_name, friend_profile_path(friend.friend_id), remote: true %></td>
+            <td><%= friend.friend_user.profile.club.name if friend.friend_user.profile.club.present? %></td>
+            <td><%= friend.friend_user.profile.type.name if friend.friend_user.profile.type.present? %></td>
+            <td>
               <div id='good-btn-<%= friend.friend_user.id %>'>
                 <%= render partial: "do_good/good_btn", locals: { user_id: friend.friend_user.id } %>
               </div>
-              
-              <%= button_to 'ブロック', block_create_path(friend.friend_id), method: :post %>
-          </div>
+            </td>
+          </tr>
       <% end %>
+    </table>
   </div>
 
   <!-- フレンドプロフィール用 -->
