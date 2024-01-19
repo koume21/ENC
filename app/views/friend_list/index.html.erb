@@ -2,7 +2,7 @@
   <h1>フレンド一覧</h1>
     
         <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
-        <div class="search">
+        <div class="friend_search">
           <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"}%>
           <%= submit_tag "検索" %>
         </div>
