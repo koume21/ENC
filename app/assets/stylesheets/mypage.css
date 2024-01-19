@@ -18,16 +18,14 @@ p {
 }
 .my_profile {
     width:100%;
-    box-shadow: 10px 5px 5px ;
-    border-bottom:1px solid rgb(248, 10, 228);
 }
 .header-top {
+    background-color: rgb(209, 201, 202);
     width:100%;
     text-align:center;
-    box-shadow: 10px 5px 5px;
-    border-bottom:1px solid rgb(248, 10, 228);
 }
 .header-top p{
+    background-color: rgb(209, 201, 202);
     font-family: 'Times New Roman', Times, serif;
     margin-left:230px; 
     text-align: center;
@@ -47,6 +45,7 @@ p {
     width: fit-content;
 }
 .profile {
+    background-color: rgb(209, 201, 202);
     text-align:center;
     display:flex;
     justify-content: center;
