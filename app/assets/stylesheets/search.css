@@ -1,6 +1,10 @@
+h1{
+    background-color:rgb(116, 187, 183);
+    width:100%;
+}
+
 .search{
     text-align: center;
-    margin: 50px 100px;
 }
 
 table{
