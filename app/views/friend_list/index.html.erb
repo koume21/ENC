@@ -3,16 +3,18 @@
     <p><i class="bi bi-people"></i> friend list</p>
   </div>
     
-        <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
-        <div class="friend_search">
-          <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"}%>
-          <%= submit_tag "検索" %>
-        </div>
-        <% end %>
+        
 
 </div>
-
-  <div>
+<div>
+  <%= form_tag({controller:"friend_list",action:"search"}, method: :post) do%>
+    <div class="friend_search">
+      <%= text_field_tag :login_or_user_name, @login_or_user_name, {class:"form-control"}%>
+      <%= submit_tag "検索" %>
+    </div>
+  <% end %>
+</div>
+<div>
   <table class="friend_list_pro">
       <% @friend_list.each do |friend| %>
           <tr valign="middle">
@@ -37,8 +39,8 @@
           </tr>
       <% end %>
     </table>
-  </div>
+</div>
 
   <!-- フレンドプロフィール用 -->
-  <div id="modal-friend-profile" class="modal fade"></div>
+<div id="modal-friend-profile" class="modal fade"></div>
 

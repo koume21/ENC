@@ -1,11 +1,13 @@
 .top {
     height:5%;
+    margin:0 0 40px 0;
 }
 .friend_top {
     height:100%;
     background-color:rgb(116, 187, 183);
     text-align: center;
-    margin:0 0 40px 0;
+
+    position:relative;
 }
 
 .friend_top p{
