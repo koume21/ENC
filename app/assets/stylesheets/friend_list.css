@@ -1,6 +1,26 @@
-h1{
+.top {
+    height:5%;
+}
+.friend_top {
+    height:100%;
+    background-color:rgb(116, 187, 183);
     text-align: center;
-    margin:20px 0 40px 0;
+    margin:0 0 40px 0;
+}
+
+.friend_top p{
+    margin:0;
+    width:fit-content;
+    color:black;
+    font-family: 'Itim', cursive;
+    font-weight:bold;
+    font-size:1.3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    text-align:center;
 }
 
 .friend_search{
