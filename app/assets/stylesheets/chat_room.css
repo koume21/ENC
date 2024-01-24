@@ -129,13 +129,3 @@ p {
     border-radius:1rem;
 }
 
-.chat_room form input[type = "submit"] {
-    padding:10px;
-    font-size:1rem;
-    color:white;
-    background-color:#4e4e4e;
-}
-.chat_room form [type="submit"]:hover {
-    color:#4e4e4e;
-    background-color:rgb(199, 201, 202);
-}
